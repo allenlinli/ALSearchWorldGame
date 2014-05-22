@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+extern const NSUInteger ALWorldInitialWidth;
+extern const NSUInteger ALWorldInitialHeight;
+
 @interface ALWorld : NSObject
 @property (readonly, strong, nonatomic) NSArray *twoDPoints;
-
+@property (assign, readonly, nonatomic) NSUInteger width;
+@property (assign, readonly, nonatomic) NSUInteger height;
 
 -(id)initWorld;
 -(id)initWorldWithSize:(ALWorldSize)worldSize;

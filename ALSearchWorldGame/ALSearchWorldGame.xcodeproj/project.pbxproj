@@ -24,6 +24,7 @@
 		E3C34EC0192D9FC400CF6D14 /* ALWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C34EBF192D9FC400CF6D14 /* ALWorld.m */; };
 		E3C34EC3192DA42000CF6D14 /* ALPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C34EC2192DA42000CF6D14 /* ALPoint.m */; };
 		E3C34EC5192DA56800CF6D14 /* ALWorldStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C34EC4192DA56800CF6D14 /* ALWorldStruct.m */; };
+		E3C34EC7192DA99300CF6D14 /* ALTestWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C34EC6192DA99300CF6D14 /* ALTestWorld.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		E3C34EC1192DA42000CF6D14 /* ALPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPoint.h; sourceTree = "<group>"; };
 		E3C34EC2192DA42000CF6D14 /* ALPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPoint.m; sourceTree = "<group>"; };
 		E3C34EC4192DA56800CF6D14 /* ALWorldStruct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALWorldStruct.m; sourceTree = "<group>"; };
+		E3C34EC6192DA99300CF6D14 /* ALTestWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTestWorld.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				E3C34EB3192D9D7600CF6D14 /* ALSearchWorldGameTests.m */,
+				E3C34EC6192DA99300CF6D14 /* ALTestWorld.m */,
 				E3C34EAE192D9D7600CF6D14 /* Supporting Files */,
 			);
 			path = ALSearchWorldGameTests;
@@ -279,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E3C34EB4192D9D7600CF6D14 /* ALSearchWorldGameTests.m in Sources */,
+				E3C34EC7192DA99300CF6D14 /* ALTestWorld.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

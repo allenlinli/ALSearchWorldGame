@@ -10,7 +10,8 @@
 
 typedef enum {
     ALPointStateWall,
-    ALPointStateRoad
+    ALPointStateRoad,
+    ALPointStateTotalCount  // 計算 enum 的數量
 }ALPointState;
 
 @interface ALPoint : NSObject
