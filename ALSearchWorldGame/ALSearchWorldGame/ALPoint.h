@@ -16,7 +16,7 @@ typedef enum {
 
 @interface ALPoint : NSObject
 @property (assign, nonatomic) ALPointState state;
-@property (assign, nonatomic) ALCoordiante coor;
+@property (assign, nonatomic) ALCoordiante coordinate;
 
 -(id)initWithCoor:(ALCoordiante)coor;
 -(id)initWithRandomStateWithCoor:(ALCoordiante)coor;

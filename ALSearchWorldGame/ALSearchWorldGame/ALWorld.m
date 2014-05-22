@@ -40,6 +40,8 @@ const NSUInteger ALWorldInitialHeight = 100;
             }
             [twoDArray addObject:rowArray];
         }
+        
+        _twoDPoints = twoDArray;
     }
     
     NSUInteger randomStartPointCoorX = arc4random() % self.width;
@@ -50,25 +52,27 @@ const NSUInteger ALWorldInitialHeight = 100;
     NSUInteger randomEndPointCoorY = arc4random() % self.height;
     _endPoint = [[ALPoint alloc] initWithCoordinateX:randomEndPointCoorX coordinateY:randomEndPointCoorY state:ALPointStateRoad];
     
+    
+    
     return self;
 }
 
 -(ALPoint const *) pointWithCoor:(ALCoordiante) coor {
-    if (coor.coordianteX > self.width || coor.coordianteY > self.height) {
+    if (coor.x > self.width || coor.y > self.height) {
         NSLog(@"[BUG]");
         return 0;
     }
     
-    NSArray *rowArray = self.twoDPoints[coor.coordianteY];
-    ALPoint *point = rowArray[coor.coordianteX];
+    NSArray *rowArray = self.twoDPoints[coor.y];
+    ALPoint *point = rowArray[coor.x];
     return point;
 }
 
 -(void)changePointState:(ALPointState)state withCoor:(ALCoordiante)coor{
-    NSMutableArray *rowArray = self.twoDPoints[coor.coordianteY];
-    ALPoint *point = rowArray[coor.coordianteX];
+    NSMutableArray *rowArray = self.twoDPoints[coor.y];
+    ALPoint *point = rowArray[coor.x];
     point.state = state;
-    rowArray[coor.coordianteX] = point;
+    rowArray[coor.x] = point;
 //    [rowArray replaceObjectAtIndex:coor.coordianteX withObject:point];
 }
 

@@ -35,13 +35,27 @@
 - (void)testPointWithCoor
 {
     ALWorld *world = self.world;
-    ALPoint *point = [world pointWithCoor:ALCoordianteMake(0, 0)];
+    const ALPoint *point = [world pointWithCoor:ALCoordianteMake(0, 0)];
     XCTAssertNotNil(point, @"");
-    XCTAssertTrue(point.coor.coordianteX==0 && point.coor.coordianteY==0, @"");
+    XCTAssertTrue(point.coordinate.x==0 && point.coordinate.y==0, @"");
     
-    ALPoint *point2 = [world pointWithCoor:ALCoordianteMake(10, 10)];
+    const ALPoint *point2 = [world pointWithCoor:ALCoordianteMake(10, 10)];
     XCTAssertNotNil(point2, @"");
-    XCTAssertTrue(point2.coor.coordianteX==10 && point.coor.coordianteY==10, @"");
+    XCTAssertTrue(point2.coordinate.x==10 && point2.coordinate.y==10, @"");
+}
+
+- (void)testChangePointState
+{
+    ALWorld *world = self.world;
+    const ALPoint *point = [world pointWithCoor:ALCoordianteMake(0, 0)];
+    ALPointState oldState = point.state;
+    ALPointState changedState = (oldState == ALPointStateRoad)? ALPointStateWall : ALPointStateRoad;
+    
+    [world changePointState:changedState withCoor:point.coordinate];
+    
+    XCTAssertNotNil(point, @"");
+    XCTAssertEqual(point.state, changedState, @"");
+    XCTAssertNotEqual(point.state, oldState, @"");
 }
 
 @end

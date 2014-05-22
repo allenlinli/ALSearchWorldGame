@@ -18,10 +18,10 @@ ALWorldSize ALWorldSizeMake (NSInteger width, NSInteger height){
 }
 
 
-ALCoordiante ALCoordianteMake (NSInteger coordianteX, NSInteger coordianteY){
-    ALCoordiante coor;
-    coor.coordianteX = coordianteX;
-    coor.coordianteY = coordianteY;
+ALCoordiante ALCoordianteMake (NSInteger x, NSInteger y){
+    ALCoordiante coorindate;
+    coorindate.x = x;
+    coorindate.y = y;
     
-    return coor;
+    return coorindate;
 }

@@ -15,8 +15,8 @@ ALWorldSize ALWorldSizeMake (NSInteger width, NSInteger height);
 
 
 typedef struct {
-    NSInteger coordianteX;
-    NSInteger coordianteY;
+    NSInteger x;
+    NSInteger y;
 } ALCoordiante;
 
 ALCoordiante ALCoordianteMake (NSInteger width, NSInteger height);

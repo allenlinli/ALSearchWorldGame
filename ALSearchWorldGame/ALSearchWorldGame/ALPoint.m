@@ -23,7 +23,7 @@
     self = [super init];
     
     if (self) {
-        _coor = coor;
+        _coordinate = coor;
         _state = state;
     }
     
