@@ -7,9 +7,11 @@
 //
 
 #import "ALViewController.h"
+#import "ALWorldView.h"
 
 @interface ALViewController ()
-
+@property (strong, nonatomic) ALWorld *world;
+@property (weak, nonatomic) IBOutlet ALWorldView *WorldView;
 @end
 
 @implementation ALViewController
@@ -18,6 +20,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.world = [[ALWorld alloc] init];
+
+    [self.WorldView setNeedsDisplay];
 }
 
 - (void)didReceiveMemoryWarning

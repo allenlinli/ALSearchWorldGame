@@ -7,7 +7,7 @@
 //
 
 #import "ALWorld.h"
-#import "ALPoint.h"
+
 
 const NSUInteger ALWorldInitialWidth = 100;
 const NSUInteger ALWorldInitialHeight = 100;
@@ -34,17 +34,42 @@ const NSUInteger ALWorldInitialHeight = 100;
         for (NSUInteger row = 0; row < worldSize.height; row++) {
             NSMutableArray *rowArray = [[NSMutableArray alloc] initWithCapacity:worldSize.width];
             for (NSUInteger column = 0 ; column < worldSize.width; column++) {
-                ALPointState state = arc4random() % ALPointStateTotalCount;
-                ALPoint *point = [[ALPoint alloc]initWithCoordinateX:row coordinateY:column state:state];
+                ALCoordiante coor = ALCoordianteMake(row, column);
+                ALPoint *point = [[ALPoint alloc] initWithRandomStateWithCoor:coor];
                 [rowArray addObject:point];
             }
             [twoDArray addObject:rowArray];
         }
     }
     
-    NSLog(@"worldSize.width: %i  worldSize.height:%i",worldSize.width,worldSize.height);
+    NSUInteger randomStartPointCoorX = arc4random() % self.width;
+    NSUInteger randomStartPointCoorY = arc4random() % self.height;
+    _startPoint = [[ALPoint alloc] initWithCoordinateX:randomStartPointCoorX coordinateY:randomStartPointCoorY state:ALPointStateRoad];
+    
+    NSUInteger randomEndPointCoorX = arc4random() % self.width;
+    NSUInteger randomEndPointCoorY = arc4random() % self.height;
+    _endPoint = [[ALPoint alloc] initWithCoordinateX:randomEndPointCoorX coordinateY:randomEndPointCoorY state:ALPointStateRoad];
     
     return self;
+}
+
+-(ALPoint const *) pointWithCoor:(ALCoordiante) coor {
+    if (coor.coordianteX > self.width || coor.coordianteY > self.height) {
+        NSLog(@"[BUG]");
+        return 0;
+    }
+    
+    NSArray *rowArray = self.twoDPoints[coor.coordianteY];
+    ALPoint *point = rowArray[coor.coordianteX];
+    return point;
+}
+
+-(void)changePointState:(ALPointState)state withCoor:(ALCoordiante)coor{
+    NSMutableArray *rowArray = self.twoDPoints[coor.coordianteY];
+    ALPoint *point = rowArray[coor.coordianteX];
+    point.state = state;
+    rowArray[coor.coordianteX] = point;
+//    [rowArray replaceObjectAtIndex:coor.coordianteX withObject:point];
 }
 
 @end

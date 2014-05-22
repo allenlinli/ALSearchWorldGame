@@ -18,6 +18,8 @@ typedef enum {
 @property (assign, nonatomic) ALPointState state;
 @property (assign, nonatomic) ALCoordiante coor;
 
+-(id)initWithCoor:(ALCoordiante)coor;
+-(id)initWithRandomStateWithCoor:(ALCoordiante)coor;
 -(id)initWithCoor:(ALCoordiante)coor state:(ALPointState)state;
 -(id)initWithCoordinateX:(NSInteger)coordinateX coordinateY:(NSInteger)coordinateY state:(ALPointState)state;
 

@@ -9,6 +9,16 @@
 #import "ALPoint.h"
 
 @implementation ALPoint
+
+-(id)initWithCoor:(ALCoordiante)coor{
+    return [self initWithCoor:coor state:ALPointStateWall];
+}
+
+-(id)initWithRandomStateWithCoor:(ALCoordiante)coor{
+    ALPointState state = arc4random() % ALPointStateTotalCount;
+    return [self initWithCoor:coor state:state];
+}
+
 -(id)initWithCoor:(ALCoordiante)coor state:(ALPointState)state{
     self = [super init];
     

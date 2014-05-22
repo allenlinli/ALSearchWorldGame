@@ -25,6 +25,7 @@
 		E3C34EC3192DA42000CF6D14 /* ALPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C34EC2192DA42000CF6D14 /* ALPoint.m */; };
 		E3C34EC5192DA56800CF6D14 /* ALWorldStruct.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C34EC4192DA56800CF6D14 /* ALWorldStruct.m */; };
 		E3C34EC7192DA99300CF6D14 /* ALTestWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C34EC6192DA99300CF6D14 /* ALTestWorld.m */; };
+		E3C34ECA192DAD0500CF6D14 /* ALWorldView.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C34EC9192DAD0500CF6D14 /* ALWorldView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		E3C34EC2192DA42000CF6D14 /* ALPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPoint.m; sourceTree = "<group>"; };
 		E3C34EC4192DA56800CF6D14 /* ALWorldStruct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALWorldStruct.m; sourceTree = "<group>"; };
 		E3C34EC6192DA99300CF6D14 /* ALTestWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALTestWorld.m; sourceTree = "<group>"; };
+		E3C34EC8192DAD0500CF6D14 /* ALWorldView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALWorldView.h; sourceTree = "<group>"; };
+		E3C34EC9192DAD0500CF6D14 /* ALWorldView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALWorldView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 				E3C34E9A192D9D7600CF6D14 /* Main.storyboard */,
 				E3C34E9D192D9D7600CF6D14 /* ALViewController.h */,
 				E3C34E9E192D9D7600CF6D14 /* ALViewController.m */,
+				E3C34EC8192DAD0500CF6D14 /* ALWorldView.h */,
+				E3C34EC9192DAD0500CF6D14 /* ALWorldView.m */,
 				E3C34EBE192D9FC400CF6D14 /* ALWorld.h */,
 				E3C34EBF192D9FC400CF6D14 /* ALWorld.m */,
 				E3C34EC1192DA42000CF6D14 /* ALPoint.h */,
@@ -272,6 +277,7 @@
 				E3C34EC0192D9FC400CF6D14 /* ALWorld.m in Sources */,
 				E3C34EC5192DA56800CF6D14 /* ALWorldStruct.m in Sources */,
 				E3C34E9F192D9D7600CF6D14 /* ALViewController.m in Sources */,
+				E3C34ECA192DAD0500CF6D14 /* ALWorldView.m in Sources */,
 				E3C34EC3192DA42000CF6D14 /* ALPoint.m in Sources */,
 				E3C34E99192D9D7600CF6D14 /* ALAppDelegate.m in Sources */,
 			);
