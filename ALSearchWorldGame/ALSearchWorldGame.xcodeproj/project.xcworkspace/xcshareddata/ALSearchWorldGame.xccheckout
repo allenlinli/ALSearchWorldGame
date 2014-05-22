@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2024E361-6F91-4FA7-92AE-4105AF5028DC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ALSearchWorldGame</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4E0BF7A0-880D-4503-A708-4894D3DEBD56</key>
+		<string>https://github.com/allenlinli/ALSearchWorldGame.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ALSearchWorldGame/ALSearchWorldGame.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4E0BF7A0-880D-4503-A708-4894D3DEBD56</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/allenlinli/ALSearchWorldGame.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>4E0BF7A0-880D-4503-A708-4894D3DEBD56</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4E0BF7A0-880D-4503-A708-4894D3DEBD56</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ALSearchWorldGame</string>
+		</dict>
+	</array>
+</dict>
+</plist>

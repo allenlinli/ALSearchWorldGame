@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E3C34E89192D9D7600CF6D14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C34E88192D9D7600CF6D14 /* Foundation.framework */; };
+		E3C34E8B192D9D7600CF6D14 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C34E8A192D9D7600CF6D14 /* CoreGraphics.framework */; };
+		E3C34E8D192D9D7600CF6D14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C34E8C192D9D7600CF6D14 /* UIKit.framework */; };
+		E3C34E93192D9D7600CF6D14 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E3C34E91192D9D7600CF6D14 /* InfoPlist.strings */; };
+		E3C34E95192D9D7600CF6D14 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C34E94192D9D7600CF6D14 /* main.m */; };
+		E3C34E99192D9D7600CF6D14 /* ALAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C34E98192D9D7600CF6D14 /* ALAppDelegate.m */; };
+		E3C34E9C192D9D7600CF6D14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3C34E9A192D9D7600CF6D14 /* Main.storyboard */; };
+		E3C34E9F192D9D7600CF6D14 /* ALViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C34E9E192D9D7600CF6D14 /* ALViewController.m */; };
+		E3C34EA1192D9D7600CF6D14 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3C34EA0192D9D7600CF6D14 /* Images.xcassets */; };
+		E3C34EA8192D9D7600CF6D14 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C34EA7192D9D7600CF6D14 /* XCTest.framework */; };
+		E3C34EA9192D9D7600CF6D14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C34E88192D9D7600CF6D14 /* Foundation.framework */; };
+		E3C34EAA192D9D7600CF6D14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C34E8C192D9D7600CF6D14 /* UIKit.framework */; };
+		E3C34EB2192D9D7600CF6D14 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E3C34EB0192D9D7600CF6D14 /* InfoPlist.strings */; };
+		E3C34EB4192D9D7600CF6D14 /* ALSearchWorldGameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E3C34EB3192D9D7600CF6D14 /* ALSearchWorldGameTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E3C34EAB192D9D7600CF6D14 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3C34E7D192D9D7600CF6D14 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3C34E84192D9D7600CF6D14;
+			remoteInfo = ALSearchWorldGame;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E3C34E85192D9D7600CF6D14 /* ALSearchWorldGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALSearchWorldGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3C34E88192D9D7600CF6D14 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E3C34E8A192D9D7600CF6D14 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E3C34E8C192D9D7600CF6D14 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E3C34E90192D9D7600CF6D14 /* ALSearchWorldGame-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ALSearchWorldGame-Info.plist"; sourceTree = "<group>"; };
+		E3C34E92192D9D7600CF6D14 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E3C34E94192D9D7600CF6D14 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E3C34E96192D9D7600CF6D14 /* ALSearchWorldGame-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ALSearchWorldGame-Prefix.pch"; sourceTree = "<group>"; };
+		E3C34E97192D9D7600CF6D14 /* ALAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALAppDelegate.h; sourceTree = "<group>"; };
+		E3C34E98192D9D7600CF6D14 /* ALAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALAppDelegate.m; sourceTree = "<group>"; };
+		E3C34E9B192D9D7600CF6D14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E3C34E9D192D9D7600CF6D14 /* ALViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ALViewController.h; sourceTree = "<group>"; };
+		E3C34E9E192D9D7600CF6D14 /* ALViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALViewController.m; sourceTree = "<group>"; };
+		E3C34EA0192D9D7600CF6D14 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E3C34EA6192D9D7600CF6D14 /* ALSearchWorldGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ALSearchWorldGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3C34EA7192D9D7600CF6D14 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		E3C34EAF192D9D7600CF6D14 /* ALSearchWorldGameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ALSearchWorldGameTests-Info.plist"; sourceTree = "<group>"; };
+		E3C34EB1192D9D7600CF6D14 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E3C34EB3192D9D7600CF6D14 /* ALSearchWorldGameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ALSearchWorldGameTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E3C34E82192D9D7600CF6D14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3C34E8B192D9D7600CF6D14 /* CoreGraphics.framework in Frameworks */,
+				E3C34E8D192D9D7600CF6D14 /* UIKit.framework in Frameworks */,
+				E3C34E89192D9D7600CF6D14 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3C34EA3192D9D7600CF6D14 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3C34EA8192D9D7600CF6D14 /* XCTest.framework in Frameworks */,
+				E3C34EAA192D9D7600CF6D14 /* UIKit.framework in Frameworks */,
+				E3C34EA9192D9D7600CF6D14 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E3C34E7C192D9D7600CF6D14 = {
+			isa = PBXGroup;
+			children = (
+				E3C34E8E192D9D7600CF6D14 /* ALSearchWorldGame */,
+				E3C34EAD192D9D7600CF6D14 /* ALSearchWorldGameTests */,
+				E3C34E87192D9D7600CF6D14 /* Frameworks */,
+				E3C34E86192D9D7600CF6D14 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E3C34E86192D9D7600CF6D14 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E3C34E85192D9D7600CF6D14 /* ALSearchWorldGame.app */,
+				E3C34EA6192D9D7600CF6D14 /* ALSearchWorldGameTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E3C34E87192D9D7600CF6D14 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E3C34E88192D9D7600CF6D14 /* Foundation.framework */,
+				E3C34E8A192D9D7600CF6D14 /* CoreGraphics.framework */,
+				E3C34E8C192D9D7600CF6D14 /* UIKit.framework */,
+				E3C34EA7192D9D7600CF6D14 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3C34E8E192D9D7600CF6D14 /* ALSearchWorldGame */ = {
+			isa = PBXGroup;
+			children = (
+				E3C34E97192D9D7600CF6D14 /* ALAppDelegate.h */,
+				E3C34E98192D9D7600CF6D14 /* ALAppDelegate.m */,
+				E3C34E9A192D9D7600CF6D14 /* Main.storyboard */,
+				E3C34E9D192D9D7600CF6D14 /* ALViewController.h */,
+				E3C34E9E192D9D7600CF6D14 /* ALViewController.m */,
+				E3C34EA0192D9D7600CF6D14 /* Images.xcassets */,
+				E3C34E8F192D9D7600CF6D14 /* Supporting Files */,
+			);
+			path = ALSearchWorldGame;
+			sourceTree = "<group>";
+		};
+		E3C34E8F192D9D7600CF6D14 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E3C34E90192D9D7600CF6D14 /* ALSearchWorldGame-Info.plist */,
+				E3C34E91192D9D7600CF6D14 /* InfoPlist.strings */,
+				E3C34E94192D9D7600CF6D14 /* main.m */,
+				E3C34E96192D9D7600CF6D14 /* ALSearchWorldGame-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E3C34EAD192D9D7600CF6D14 /* ALSearchWorldGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				E3C34EB3192D9D7600CF6D14 /* ALSearchWorldGameTests.m */,
+				E3C34EAE192D9D7600CF6D14 /* Supporting Files */,
+			);
+			path = ALSearchWorldGameTests;
+			sourceTree = "<group>";
+		};
+		E3C34EAE192D9D7600CF6D14 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E3C34EAF192D9D7600CF6D14 /* ALSearchWorldGameTests-Info.plist */,
+				E3C34EB0192D9D7600CF6D14 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E3C34E84192D9D7600CF6D14 /* ALSearchWorldGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3C34EB7192D9D7600CF6D14 /* Build configuration list for PBXNativeTarget "ALSearchWorldGame" */;
+			buildPhases = (
+				E3C34E81192D9D7600CF6D14 /* Sources */,
+				E3C34E82192D9D7600CF6D14 /* Frameworks */,
+				E3C34E83192D9D7600CF6D14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ALSearchWorldGame;
+			productName = ALSearchWorldGame;
+			productReference = E3C34E85192D9D7600CF6D14 /* ALSearchWorldGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E3C34EA5192D9D7600CF6D14 /* ALSearchWorldGameTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E3C34EBA192D9D7600CF6D14 /* Build configuration list for PBXNativeTarget "ALSearchWorldGameTests" */;
+			buildPhases = (
+				E3C34EA2192D9D7600CF6D14 /* Sources */,
+				E3C34EA3192D9D7600CF6D14 /* Frameworks */,
+				E3C34EA4192D9D7600CF6D14 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E3C34EAC192D9D7600CF6D14 /* PBXTargetDependency */,
+			);
+			name = ALSearchWorldGameTests;
+			productName = ALSearchWorldGameTests;
+			productReference = E3C34EA6192D9D7600CF6D14 /* ALSearchWorldGameTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E3C34E7D192D9D7600CF6D14 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AL;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Raccoonism;
+				TargetAttributes = {
+					E3C34EA5192D9D7600CF6D14 = {
+						TestTargetID = E3C34E84192D9D7600CF6D14;
+					};
+				};
+			};
+			buildConfigurationList = E3C34E80192D9D7600CF6D14 /* Build configuration list for PBXProject "ALSearchWorldGame" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E3C34E7C192D9D7600CF6D14;
+			productRefGroup = E3C34E86192D9D7600CF6D14 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E3C34E84192D9D7600CF6D14 /* ALSearchWorldGame */,
+				E3C34EA5192D9D7600CF6D14 /* ALSearchWorldGameTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E3C34E83192D9D7600CF6D14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3C34EA1192D9D7600CF6D14 /* Images.xcassets in Resources */,
+				E3C34E93192D9D7600CF6D14 /* InfoPlist.strings in Resources */,
+				E3C34E9C192D9D7600CF6D14 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3C34EA4192D9D7600CF6D14 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3C34EB2192D9D7600CF6D14 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E3C34E81192D9D7600CF6D14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3C34E95192D9D7600CF6D14 /* main.m in Sources */,
+				E3C34E9F192D9D7600CF6D14 /* ALViewController.m in Sources */,
+				E3C34E99192D9D7600CF6D14 /* ALAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E3C34EA2192D9D7600CF6D14 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E3C34EB4192D9D7600CF6D14 /* ALSearchWorldGameTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E3C34EAC192D9D7600CF6D14 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E3C34E84192D9D7600CF6D14 /* ALSearchWorldGame */;
+			targetProxy = E3C34EAB192D9D7600CF6D14 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E3C34E91192D9D7600CF6D14 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3C34E92192D9D7600CF6D14 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E3C34E9A192D9D7600CF6D14 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3C34E9B192D9D7600CF6D14 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E3C34EB0192D9D7600CF6D14 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3C34EB1192D9D7600CF6D14 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E3C34EB5192D9D7600CF6D14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E3C34EB6192D9D7600CF6D14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E3C34EB8192D9D7600CF6D14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ALSearchWorldGame/ALSearchWorldGame-Prefix.pch";
+				INFOPLIST_FILE = "ALSearchWorldGame/ALSearchWorldGame-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E3C34EB9192D9D7600CF6D14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ALSearchWorldGame/ALSearchWorldGame-Prefix.pch";
+				INFOPLIST_FILE = "ALSearchWorldGame/ALSearchWorldGame-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		E3C34EBB192D9D7600CF6D14 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ALSearchWorldGame.app/ALSearchWorldGame";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ALSearchWorldGame/ALSearchWorldGame-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ALSearchWorldGameTests/ALSearchWorldGameTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		E3C34EBC192D9D7600CF6D14 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ALSearchWorldGame.app/ALSearchWorldGame";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ALSearchWorldGame/ALSearchWorldGame-Prefix.pch";
+				INFOPLIST_FILE = "ALSearchWorldGameTests/ALSearchWorldGameTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E3C34E80192D9D7600CF6D14 /* Build configuration list for PBXProject "ALSearchWorldGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3C34EB5192D9D7600CF6D14 /* Debug */,
+				E3C34EB6192D9D7600CF6D14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E3C34EB7192D9D7600CF6D14 /* Build configuration list for PBXNativeTarget "ALSearchWorldGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3C34EB8192D9D7600CF6D14 /* Debug */,
+				E3C34EB9192D9D7600CF6D14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E3C34EBA192D9D7600CF6D14 /* Build configuration list for PBXNativeTarget "ALSearchWorldGameTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E3C34EBB192D9D7600CF6D14 /* Debug */,
+				E3C34EBC192D9D7600CF6D14 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E3C34E7D192D9D7600CF6D14 /* Project object */;
+}
