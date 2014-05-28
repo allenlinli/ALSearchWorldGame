@@ -7,9 +7,11 @@
 //
 
 #import "ALViewController.h"
+#import "ALWorldView.h"
 
-@interface ALViewController ()
-
+@interface ALViewController () <ALWorldViewDatasource>
+@property (strong, nonatomic) ALWorld *world;
+@property (weak, nonatomic) IBOutlet ALWorldView *WorldView;
 @end
 
 @implementation ALViewController
@@ -18,12 +20,45 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    self.world = [[ALWorld alloc] initWorldWithDefaultSize];
+    self.WorldView.dataSource = self;
+    [self.WorldView setNeedsDisplay];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(NSUInteger)nuberOfRowsForWorldView:(ALWorldView *)worldView{
+    return self.world.size.height;
 }
 
+-(NSUInteger)nuberOfColumnsForWorldView:(ALWorldView *)worldView{
+    return self.world.size.width;
+}
+
+-(WorldViewCellRoadState)worldView:(ALWorldView *)worldView roadStateAtCoordinate:(ALCoordiante)coor{
+    switch ([self.world pointAtCoor:coor].roadState) {
+        case ALPointRoadStateRoad:
+            return WorldViewCellRoadStateRoad;
+            break;
+        case ALPointRoadStateWall:
+            return WorldViewCellRoadStateWall;
+            break;
+        default:
+            break;
+    }
+    return WorldViewCellRoadStateWall;
+}
+
+-(WorldViewCellSearchState)worldView:(ALWorldView *)worldView searchStateAtCoordinate:(ALCoordiante)coor{
+    switch ([self.world pointAtCoor:coor].roadState) {
+        case ALPointSearchStateWalked:
+            return WorldViewCellSearchStateWalked;
+            break;
+        case ALPointSearchStateNew:
+            return WorldViewCellSearchStateNew;
+            break;
+        default:
+            break;
+    }
+    return WorldViewCellSearchStateNew;
+}
 @end
