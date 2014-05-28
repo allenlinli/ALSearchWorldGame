@@ -28,6 +28,8 @@ typedef enum {
 @property (assign, nonatomic) ALPointSearchState searchState;
 @property (assign, nonatomic) ALCoordiante coor;
 
++(BOOL)isCoordinateEqualWithPoint:(ALPoint *)pointA withAnotherPoint:(ALPoint *)pointB;
+
 -(id)initWithCoor:(ALCoordiante)coor;
 -(id)initWithRandomRoadStateOfPointAtCoor:(ALCoordiante)coor;
 -(id)initWithCoor:(ALCoordiante)coor state:(ALPointRoadState)state;

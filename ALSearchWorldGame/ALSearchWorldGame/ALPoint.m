@@ -10,6 +10,10 @@
 
 @implementation ALPoint
 
++(BOOL)isCoordinateEqualWithPoint:(ALPoint *)pointA withAnotherPoint:(ALPoint *)pointB{
+    return (pointA.coor.x==pointB.coor.x && pointA.coor.y == pointB.coor.y);
+}
+
 -(id)initWithCoor:(ALCoordiante)coor{
     return [self initWithCoor:coor state:ALPointRoadStateWall];
 }

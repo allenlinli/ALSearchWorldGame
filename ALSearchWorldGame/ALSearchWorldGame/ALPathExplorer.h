@@ -12,25 +12,24 @@
 @class ALPath;
 
 @interface ALPathExplorer : NSObject
-@property (strong, nonatomic) NSArray *pathsQueue;
+@property (strong, nonatomic) NSMutableArray *pathsQueue; //包含很多個path的queue
 @property (strong, nonatomic) ALMap *map;
+@property (strong, readonly,nonatomic) ALPath *shortestPath;
 
--(id)initWithDefaultMap;
++(NSMutableArray *)newPathsQueueWithMap:(ALMap *)map;
 
--(void)explorePath:(ALPath *)path;
+-(void)explorePath:(ALPath *)path withMap:(ALMap *)map;
 
--(NSArray *)coordinatesOfNewPointOnPath:(ALPath *)path;
 
 @end
 
 
 @interface ALPath : NSObject
-@property (strong, readonly, nonatomic) NSArray *points;
-@property (assign, readonly, nonatomic) ALCoordiante *headPointCoordinate;
+@property (strong, nonatomic) NSMutableArray *coordinateStack; //包含很多個ALCoordinate  //不知道怎麼樣readOnly
+@property (assign, readonly, nonatomic) ALCoordiante headPointCoordinate;
 
-// distanceFromHeadPointOfPathToEndPoint
 
--(void)pushPointWithCoordinate:(ALCoordiante)coor;
--(void)popPointWithCoordinate:(ALCoordiante)coor;
+-(void)pushWithCoordinate:(ALCoordiante)coor;
+-(void)pop;
 
 @end

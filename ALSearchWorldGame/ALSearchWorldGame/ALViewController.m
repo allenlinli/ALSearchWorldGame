@@ -20,9 +20,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
     self.explorer = [[ALPathExplorer alloc] init];
+    
     self.explorer.map = [[ALMap alloc] initWithDefaultData];
+    
+    self.explorer.pathsQueue = [[self.explorer class] newPathsQueueWithMap:self.explorer.map];
     
     self.worldView.dataSource = self;
     [self.worldView setNeedsDisplay];

@@ -25,3 +25,4 @@ ALCoordiante ALCoordianteMake (NSInteger x, NSInteger y){
     
     return coorindate;
 }
+
