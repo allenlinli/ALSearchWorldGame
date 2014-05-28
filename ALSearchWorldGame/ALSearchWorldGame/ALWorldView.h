@@ -8,15 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
-@class ALWorld;
+typedef enum : NSUInteger {
+    WorldViewCellRoadStateRoad,
+    WorldViewCellRoadStateWall,
+    WorldViewCellRoadStateWalker,
+} WorldViewCellRoadState;
+
+typedef enum : NSUInteger {
+    WorldViewCellSearchStateNew,
+    WorldViewCellSearchStateWalked,
+} WorldViewCellSearchState;
+
 @class ALWorldView;
 
-@protocol ALWorldViewDelegate <NSObject>
-
--(ALWorld *)worldForView:(ALWorldView *)view;
-
+@protocol ALWorldViewDatasource <NSObject>
+-(NSUInteger)nuberOfRowsForWorldView:(ALWorldView *)worldView;
+-(NSUInteger)nuberOfColumnsForWorldView:(ALWorldView *)worldView;
+-(WorldViewCellRoadState)worldView:(ALWorldView *)worldView roadStateAtCoordinate:(ALCoordiante)coor;
+-(WorldViewCellSearchState)worldView:(ALWorldView *)worldView searchStateAtCoordinate:(ALCoordiante)coor;
 @end
 
 @interface ALWorldView : UIView
-
+@property (weak, nonatomic) id <ALWorldViewDatasource> dataSource;
 @end

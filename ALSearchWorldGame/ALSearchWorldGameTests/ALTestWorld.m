@@ -48,8 +48,8 @@
 {
     ALWorld *world = self.world;
     const ALPoint *point = [world pointWithCoor:ALCoordianteMake(0, 0)];
-    ALPointState oldState = point.state;
-    ALPointState changedState = (oldState == ALPointStateRoad)? ALPointStateWall : ALPointStateRoad;
+    ALPointRoadState oldState = point.state;
+    ALPointRoadState changedState = (oldState == ALPointStateRoad)? ALPointStateWall : ALPointStateRoad;
     
     [world changePointState:changedState withCoor:point.coordinate];
     

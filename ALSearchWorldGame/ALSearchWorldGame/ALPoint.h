@@ -9,18 +9,25 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    ALPointStateWall,
-    ALPointStateRoad,
-    ALPointStateTotalCount  // 計算 enum 的數量
-}ALPointState;
+    ALPointRoadStateRoad,
+    ALPointRoadStateWall,
+    ALPointRoadStateTotalCount
+}ALPointRoadState;
+
+typedef enum {
+    ALPointSearchStateWalked,
+    ALPointSearchStateNew,
+    ALPointSearchStateTotalCount
+}ALPointSearchState;
 
 @interface ALPoint : NSObject
-@property (assign, nonatomic) ALPointState state;
-@property (assign, nonatomic) ALCoordiante coordinate;
+@property (assign, nonatomic) ALPointRoadState roadState;
+@property (assign, nonatomic) ALPointSearchState searchState;
+@property (assign, nonatomic) ALCoordiante coor;
 
 -(id)initWithCoor:(ALCoordiante)coor;
--(id)initWithRandomStateWithCoor:(ALCoordiante)coor;
--(id)initWithCoor:(ALCoordiante)coor state:(ALPointState)state;
--(id)initWithCoordinateX:(NSInteger)coordinateX coordinateY:(NSInteger)coordinateY state:(ALPointState)state;
+-(id)initWithRandomRoadStateOfPointAtCoor:(ALCoordiante)coor;
+-(id)initWithCoor:(ALCoordiante)coor state:(ALPointRoadState)state;
+-(id)initWithCoordinateX:(NSInteger)coordinateX coordinateY:(NSInteger)coordinateY state:(ALPointRoadState)state;
 
 @end

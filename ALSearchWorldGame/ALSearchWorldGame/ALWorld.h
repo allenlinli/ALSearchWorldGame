@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ALPoint.h"
+#import "ALWorldStruct.h"
 
 extern const NSUInteger ALWorldInitialWidth;
 extern const NSUInteger ALWorldInitialHeight;
@@ -16,19 +17,19 @@ extern const NSUInteger ALWorldInitialHeight;
 
 #pragma - CREATE
 @property (readonly, strong, nonatomic) NSArray *twoDPoints; //產生的座標點皆是正數
-@property (assign, readonly, nonatomic) NSUInteger width;
-@property (assign, readonly, nonatomic) NSUInteger height;
+@property (assign, readonly, nonatomic) ALWorldSize size;
 @property (strong, readonly, nonatomic) ALPoint *startPoint;
 @property (strong, readonly, nonatomic) ALPoint *endPoint;
 
--(id)initWorld;
--(id)initWorldWithSize:(ALWorldSize)worldSize;
+
+
+-(id)initWorldWithDefaultSize;
 
 #pragma - GET
--(ALPoint const *) pointWithCoor:(ALCoordiante) coor;
+-(ALPoint const *)pointAtCoor:(ALCoordiante) coor;
 
 #pragma - UPDATE
--(void)changePointState:(ALPointState)state withCoor:(ALCoordiante)coor;
+-(void)changePointAtCoor:(ALCoordiante)coor withSearchState:(ALPointSearchState)searchState;
 
     
 @end
