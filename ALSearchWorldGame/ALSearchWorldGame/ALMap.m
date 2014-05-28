@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Raccoonism. All rights reserved.
 //
 
-#import "ALWorld.h"
+#import "ALMap.h"
 #import "ALPoint.h"
 
 const NSUInteger ALWorldInitialWidth = 20;
 const NSUInteger ALWorldInitialHeight = 40;
 
-@implementation ALWorld
+@implementation ALMap
 -(id)initWorldWithDefaultSize{
     self = [super init];
     if (self) {

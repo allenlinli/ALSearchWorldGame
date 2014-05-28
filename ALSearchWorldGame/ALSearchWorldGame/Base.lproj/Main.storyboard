@@ -25,7 +25,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="WorldView" destination="6Ce-ah-pbd" id="anq-AZ-jUc"/>
+                        <outlet property="worldView" destination="6Ce-ah-pbd" id="k5r-kY-kX7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

@@ -8,11 +8,11 @@
 
 #import "ALViewController.h"
 #import "ALWorldView.h"
-#import "ALWorld.h"
+#import "ALPathExplorer.h"
 
 @interface ALViewController () <ALWorldViewDatasource>
-@property (strong, nonatomic) ALWorld *world;
-@property (weak, nonatomic) IBOutlet ALWorldView *WorldView;
+@property (strong, nonatomic) ALPathExplorer *explorer;
+@property (weak, nonatomic) IBOutlet ALWorldView *worldView;
 @end
 
 @implementation ALViewController
@@ -21,24 +21,25 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.explorer = [[ALPathExplorer alloc] init];
+    self.explorer.map = [[ALMap alloc] initWithDefaultData];
     
-    self.world = [[ALWorld alloc] initWithDefaultData];
-    self.WorldView.dataSource = self;
-    [self.WorldView setNeedsDisplay];
+    self.worldView.dataSource = self;
+    [self.worldView setNeedsDisplay];
 }
 
 #pragma mark - WorldView Datasource method
 
 -(NSUInteger)nuberOfRowsForWorldView:(ALWorldView *)worldView{
-    return self.world.size.height;
+    return self.explorer.map.size.height;
 }
 
 -(NSUInteger)nuberOfColumnsForWorldView:(ALWorldView *)worldView{
-    return self.world.size.width;
+    return self.explorer.map.size.width;
 }
 
 -(WorldViewCellRoadState)worldView:(ALWorldView *)worldView roadStateAtCoordinate:(ALCoordiante)coor{
-    switch ([self.world pointAtCoor:coor].roadState) {
+    switch ([self.explorer.map pointAtCoor:coor].roadState) {
         case ALPointRoadStateRoad:
             return WorldViewCellRoadStateRoad;
             break;
@@ -52,7 +53,7 @@
 }
 
 -(WorldViewCellSearchState)worldView:(ALWorldView *)worldView searchStateAtCoordinate:(ALCoordiante)coor{
-    switch ([self.world pointAtCoor:coor].roadState) {
+    switch ([self.explorer.map pointAtCoor:coor].roadState) {
         case ALPointSearchStateWalked:
             return WorldViewCellSearchStateWalked;
             break;
@@ -66,10 +67,10 @@
 }
 
 -(ALCoordiante)startPointCoordinateForWorldView:(ALWorldView *)worldView{
-    return self.world.startPoint.coor;
+    return self.explorer.map.startPoint.coor;
 }
 
 -(ALCoordiante)endPointCoordinateForWorldView:(ALWorldView *)worldView{
-    return self.world.endPoint.coor;
+    return self.explorer.map.endPoint.coor;
 }
 @end
