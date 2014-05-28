@@ -93,6 +93,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E3AD8C371935CBE800501247 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E3C34EBE192D9FC400CF6D14 /* ALWorld.h */,
+				E3C34EBF192D9FC400CF6D14 /* ALWorld.m */,
+				E3C34EC1192DA42000CF6D14 /* ALPoint.h */,
+				E3C34EC2192DA42000CF6D14 /* ALPoint.m */,
+				E3C34EBD192D9E1E00CF6D14 /* ALWorldStruct.h */,
+				E3C34EC4192DA56800CF6D14 /* ALWorldStruct.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		E3AD8C381935CBF300501247 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E3C34EC8192DAD0500CF6D14 /* ALWorldView.h */,
+				E3C34EC9192DAD0500CF6D14 /* ALWorldView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		E3AD8C391935CBFC00501247 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E3C34E9D192D9D7600CF6D14 /* ALViewController.h */,
+				E3C34E9E192D9D7600CF6D14 /* ALViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		E3C34E7C192D9D7600CF6D14 = {
 			isa = PBXGroup;
 			children = (
@@ -129,16 +160,9 @@
 				E3C34E97192D9D7600CF6D14 /* ALAppDelegate.h */,
 				E3C34E98192D9D7600CF6D14 /* ALAppDelegate.m */,
 				E3C34E9A192D9D7600CF6D14 /* Main.storyboard */,
-				E3C34E9D192D9D7600CF6D14 /* ALViewController.h */,
-				E3C34E9E192D9D7600CF6D14 /* ALViewController.m */,
-				E3C34EC8192DAD0500CF6D14 /* ALWorldView.h */,
-				E3C34EC9192DAD0500CF6D14 /* ALWorldView.m */,
-				E3C34EBE192D9FC400CF6D14 /* ALWorld.h */,
-				E3C34EBF192D9FC400CF6D14 /* ALWorld.m */,
-				E3C34EC1192DA42000CF6D14 /* ALPoint.h */,
-				E3C34EC2192DA42000CF6D14 /* ALPoint.m */,
-				E3C34EBD192D9E1E00CF6D14 /* ALWorldStruct.h */,
-				E3C34EC4192DA56800CF6D14 /* ALWorldStruct.m */,
+				E3AD8C391935CBFC00501247 /* Controller */,
+				E3AD8C381935CBF300501247 /* View */,
+				E3AD8C371935CBE800501247 /* Model */,
 				E3C34EA0192D9D7600CF6D14 /* Images.xcassets */,
 				E3C34E8F192D9D7600CF6D14 /* Supporting Files */,
 			);
@@ -485,6 +509,7 @@
 				E3C34EB9192D9D7600CF6D14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E3C34EBA192D9D7600CF6D14 /* Build configuration list for PBXNativeTarget "ALSearchWorldGameTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +518,7 @@
 				E3C34EBC192D9D7600CF6D14 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

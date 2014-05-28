@@ -8,6 +8,7 @@
 
 #import "ALViewController.h"
 #import "ALWorldView.h"
+#import "ALWorld.h"
 
 @interface ALViewController () <ALWorldViewDatasource>
 @property (strong, nonatomic) ALWorld *world;
