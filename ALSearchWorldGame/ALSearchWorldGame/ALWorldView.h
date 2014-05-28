@@ -26,6 +26,9 @@ typedef enum : NSUInteger {
 -(NSUInteger)nuberOfColumnsForWorldView:(ALWorldView *)worldView;
 -(WorldViewCellRoadState)worldView:(ALWorldView *)worldView roadStateAtCoordinate:(ALCoordiante)coor;
 -(WorldViewCellSearchState)worldView:(ALWorldView *)worldView searchStateAtCoordinate:(ALCoordiante)coor;
+
+-(ALCoordiante)startPointCoordinateForWorldView:(ALWorldView *)worldView;
+-(ALCoordiante)endPointCoordinateForWorldView:(ALWorldView *)worldView;
 @end
 
 @interface ALWorldView : UIView

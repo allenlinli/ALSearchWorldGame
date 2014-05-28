@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "ALPoint.h"
-#import "ALWorldStruct.h"
+
+@class ALPoint;
+
+struct ALPoint;
+struct ALCoordiante;
 
 extern const NSUInteger ALWorldInitialWidth;
 extern const NSUInteger ALWorldInitialHeight;
@@ -21,12 +25,12 @@ extern const NSUInteger ALWorldInitialHeight;
 @property (strong, readonly, nonatomic) ALPoint *startPoint;
 @property (strong, readonly, nonatomic) ALPoint *endPoint;
 
-
+-(id)initWithDefaultData;
 
 -(id)initWorldWithDefaultSize;
 
 #pragma - GET
--(ALPoint const *)pointAtCoor:(ALCoordiante) coor;
+-(ALPoint *)pointAtCoor:(ALCoordiante) coor;
 
 #pragma - UPDATE
 -(void)changePointAtCoor:(ALCoordiante)coor withSearchState:(ALPointSearchState)searchState;

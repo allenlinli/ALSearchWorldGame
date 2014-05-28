@@ -44,16 +44,37 @@
     _cellHeight = self.bounds.size.height / (CGFloat) self.numberOfRows;
     
     
-    
-    //畫出格子
-    for (NSUInteger row = 0; row <= self.numberOfRows; row++) {
-        [self drawHorizontalLineAtCoordinateY:row * self.cellHeight];
+    for (NSUInteger row=0; row < self.numberOfRows ; row++) {
+        for (NSUInteger column = 0; column < self.numberOfColumns ; column++) {
+            switch ([self.dataSource worldView:self roadStateAtCoordinate:ALCoordianteMake(column, row)]) {
+                case WorldViewCellRoadStateWall:
+                    break;
+                case WorldViewCellRoadStateRoad:
+                    [self drawCellAtCoordinate:ALCoordianteMake(column, row) color:[UIColor grayColor] character:nil];
+                    break;
+                default:
+                    break;
+            }
+        }
     }
     
-    for (NSUInteger column = 0; column <= self.numberOfColumns; column++) {
-        [self drawVerticalLineAtCoordinateX:column * self.cellWidth];
-    }
+    //畫起點終點
+    ALCoordiante startPoint = [self.dataSource startPointCoordinateForWorldView:self];
+    ALCoordiante endPoint = [self.dataSource endPointCoordinateForWorldView:self];
     
+    [self drawCellAtCoordinate:ALCoordianteMake(startPoint.x, startPoint.y) color:[UIColor yellowColor]  character:@"S"];
+    [self drawCellAtCoordinate:ALCoordianteMake(endPoint.x, endPoint.y) color:[UIColor blueColor]  character:@"E"];
+
+    
+//    //畫出格子
+//    for (NSUInteger row = 0; row <= self.numberOfRows; row++) {
+//        [self drawHorizontalLineAtCoordinateY:row * self.cellHeight];
+//    }
+//    
+//    for (NSUInteger column = 0; column <= self.numberOfColumns; column++) {
+//        [self drawVerticalLineAtCoordinateX:column * self.cellWidth];
+//    }
+//    
     
 //    //畫出文字
 //    for (NSUInteger row = 0; row < self.numberOfRows; row++) {
@@ -74,25 +95,23 @@
 //    }
 }
 
--(void)drawHorizontalLineAtCoordinateY:(NSInteger)coordinateY{
-    CGContextRef c = UIGraphicsGetCurrentContext();
-    CGFloat black[4] = {0.0f, 0.0f, 0.0f, 1.0f};
-    CGContextSetStrokeColor(c, black);
-    CGContextBeginPath(c);
-    CGContextMoveToPoint(c, 0, coordinateY);
-    CGContextAddLineToPoint(c, self.bounds.size.width, coordinateY);
-    CGContextStrokePath(c);
+-(void)drawCellAtCoordinate:(ALCoordiante)coor color:(UIColor *)color character:(NSString *)character{
+    if (!color) {
+        color = [UIColor whiteColor];
+    }
+    
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetLineWidth(context, 1.0);
+    CGRect rectangle = CGRectMake(coor.x*self.cellWidth,coor.y*self.cellHeight,self.cellWidth,self.cellHeight);
+    if (character) {
+        [character drawAtPoint:CGPointMake(coor.x*self.cellWidth,coor.y*self.cellHeight) withAttributes:nil];
+    }
+    CGContextAddRect(context, rectangle);
+    CGContextStrokePath(context);
+    CGContextSetFillColorWithColor(context, color.CGColor);
+    CGContextFillRect(context, rectangle);
 }
-
--(void)drawVerticalLineAtCoordinateX:(NSUInteger)coordinateX{
-    CGContextRef c = UIGraphicsGetCurrentContext();
-    CGFloat black[4] = {0.0f, 0.0f, 0.0f, 1.0f};
-    CGContextSetStrokeColor(c, black);
-    CGContextBeginPath(c);
-    CGContextMoveToPoint(c, coordinateX, 0);
-    CGContextAddLineToPoint(c, coordinateX, self.bounds.size.height);
-    CGContextStrokePath(c);
-}
-
 
 @end

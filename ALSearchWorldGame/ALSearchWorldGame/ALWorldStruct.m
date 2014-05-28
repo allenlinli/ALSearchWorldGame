@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Raccoonism. All rights reserved.
 //
 
-#include <stdio.h>
 
+#import "ALWorldStruct.h"
 
 ALWorldSize ALWorldSizeMake (NSInteger width, NSInteger height){
     ALWorldSize worldSize;

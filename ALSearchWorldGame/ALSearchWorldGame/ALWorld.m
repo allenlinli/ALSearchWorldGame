@@ -7,7 +7,7 @@
 //
 
 #import "ALWorld.h"
-
+#import "ALPoint.h"
 
 const NSUInteger ALWorldInitialWidth = 20;
 const NSUInteger ALWorldInitialHeight = 40;
@@ -20,6 +20,56 @@ const NSUInteger ALWorldInitialHeight = 40;
     }
     return self;
 }
+
+-(id)initWithDefaultData{
+    NSArray *my2DPoints =@[@[@1, @1, @1, @1, @1, @1, @1, @1, @1, @1, @1, @1],
+    @[@1, @0, @0, @0, @0, @0, @0, @0, @0, @0, @0, @1],
+    @[@1, @0, @1, @1, @1, @1, @1, @1, @0, @1, @1, @1],
+    @[@1, @0, @1, @0, @0, @0, @0, @0, @0, @0, @0, @1],
+    @[@1, @0, @1, @0, @1, @1, @1, @1, @1, @1, @0, @1],
+    @[@1, @0, @1, @0, @1, @0, @0, @0, @0, @0, @0, @1],
+    @[@1, @0, @0, @0, @1, @1, @0, @1, @1, @1, @0, @1],
+    @[@1, @0, @1, @0, @0, @0, @0, @1, @0, @1, @1, @1],
+    @[@1, @0, @1, @1, @0, @1, @0, @0, @0, @0, @0, @1],
+    @[@1, @0, @1, @0, @0, @1, @1, @1, @1, @1, @0, @1],
+    @[@1, @0, @0, @0, @1, @1, @0, @0, @0, @0, @0, @1],
+    @[@1, @1, @1, @1, @1, @1, @1, @1, @1, @1, @1, @1]];
+
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    
+    _size = ALWorldSizeMake(12, 12);
+    
+    NSMutableArray *twoDArray = [[NSMutableArray alloc]initWithCapacity:self.size.height];
+    for (NSUInteger row = 0; row < self.size.height; row++) {
+        NSMutableArray *rowArray = [[NSMutableArray alloc] initWithCapacity:self.size.width];
+        for (NSUInteger column = 0 ; column < self.size.width; column++) {
+            
+            NSNumber *num = [my2DPoints[row] objectAtIndex:column];
+            
+            ALPointRoadState state = (num.intValue==0)? ALPointRoadStateRoad:ALPointRoadStateWall;
+            
+            ALPoint *point = [[ALPoint alloc] initWithCoor:ALCoordianteMake(column, row) state:state];
+            
+            [rowArray addObject:point];
+        }
+        [twoDArray addObject:rowArray];
+    }
+    
+    _twoDPoints = twoDArray;
+    
+    
+    _startPoint = [self pointAtCoor:ALCoordianteMake(1, 1)];
+    _startPoint.roadState = ALPointRoadStateStart;
+    
+    _endPoint = [self pointAtCoor:ALCoordianteMake(8, 7)];
+    _endPoint.roadState = ALPointRoadStateEnd;
+    
+    return self;
+}
+
 -(id)initWorldWithSize:(ALWorldSize)worldSize{
     if (worldSize.width <=0 || worldSize.height<=0) {
         NSLog(@"[BUG]");
@@ -58,13 +108,11 @@ const NSUInteger ALWorldInitialHeight = 40;
         _endPoint = [[ALPoint alloc] initWithCoordinateX:randomEndPointCoorX coordinateY:randomEndPointCoorY state:ALPointRoadStateRoad];
     } while (_endPoint.coor.x == _startPoint.coor.x && _endPoint.coor.y == _startPoint.coor.y);
     
-    
-    
-    
     return self;
 }
 
--(ALPoint const *) pointAtCoor:(ALCoordiante) coor {
+
+-(ALPoint *) pointAtCoor:(ALCoordiante) coor {
     if (coor.x >= self.size.width || coor.y >= self.size.height) {
         NSLog(@"[BUG]");
         return 0;

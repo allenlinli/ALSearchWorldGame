@@ -21,10 +21,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    self.world = [[ALWorld alloc] initWorldWithDefaultSize];
+    self.world = [[ALWorld alloc] initWithDefaultData];
     self.WorldView.dataSource = self;
     [self.WorldView setNeedsDisplay];
 }
+
+#pragma mark - WorldView Datasource method
 
 -(NSUInteger)nuberOfRowsForWorldView:(ALWorldView *)worldView{
     return self.world.size.height;
@@ -60,5 +62,13 @@
             break;
     }
     return WorldViewCellSearchStateNew;
+}
+
+-(ALCoordiante)startPointCoordinateForWorldView:(ALWorldView *)worldView{
+    return self.world.startPoint.coor;
+}
+
+-(ALCoordiante)endPointCoordinateForWorldView:(ALWorldView *)worldView{
+    return self.world.endPoint.coor;
 }
 @end

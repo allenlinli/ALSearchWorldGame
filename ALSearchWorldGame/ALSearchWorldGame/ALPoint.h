@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ALWorldStruct.h"
 
 typedef enum {
     ALPointRoadStateRoad,
     ALPointRoadStateWall,
+    ALPointRoadStateStart,
+    ALPointRoadStateEnd,
     ALPointRoadStateTotalCount
 }ALPointRoadState;
 
