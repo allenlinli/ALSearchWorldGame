@@ -60,6 +60,12 @@
     }
 }
 
+-(void)printALCoordiante:(ALCoordiante)coor
+{
+    NSLog(@"printALCoordiante");
+    NSLog(@"coor:(%i,%i)",coor.x,coor.y);
+}
+
 
 
 -(void)testNewPathsQueueWithMap
@@ -106,22 +112,23 @@
     point0.searchState = ALPointSearchStateWalked;
     ALPath *newPath0 = [choosedPath copy];
     [newPath0 pushWithCoordinate:point0.coor];
-    [self printPath:newPath0];
+//    [self printPath:newPath0];
+    [self printALCoordiante:newPath0.headPointCoordinate];
     
-    NSArray *exploredPoints0 = [self.explorer exploreNewRoadPointsWithPath:choosedPath map:self.map];
+    NSArray *exploredPoints0 = [self.explorer exploreNewRoadPointsWithPath:newPath0 map:self.map];
 
+    for (ALPoint *points in exploredPoints0) {
+        [self printALCoordiante:points.coor];
+    }
+    
     XCTAssertNotNil(exploredPoints0, @"");
     XCTAssertEqual(exploredPoints0.count, 1, @"");
     
     ALPoint *point3 = exploredPoints0[0];
     
     XCTAssertEqual(point3.roadState, ALPointRoadStateRoad, @"");
-    
     XCTAssertEqual(point3.searchState, ALPointSearchStateNew, @"");
-    
-    XCTAssert(point3.coor.x == 2 && point3.coor.y ==2, @"");
-    
-    
+    XCTAssert(point3.coor.x == 3 && point3.coor.y ==1, @"");
 }
 
 

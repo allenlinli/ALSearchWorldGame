@@ -40,9 +40,10 @@
 -(void)testHeadPointCoordinate
 {
     [self.path pushWithCoordinate:self.coor];
+    [self.path pushWithCoordinate:ALCoordianteMake(3, 3)];
     ALCoordiante coor = self.path.headPointCoordinate;
     
-    XCTAssert(coor.x==2 && coor.y==3, @"");
+    XCTAssert(coor.x==3 && coor.y==3, @"");
 }
 
 - (void)testPop

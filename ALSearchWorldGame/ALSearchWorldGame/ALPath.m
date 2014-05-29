@@ -28,7 +28,7 @@
 }
 
 -(ALCoordiante)headPointCoordinate{    
-    return [(NSValue *)self.coordinateStack.firstObject coordinate];
+    return [(NSValue *)self.coordinateStack.lastObject coordinate];
 }
 
 -(void)pushWithCoordinate:(ALCoordiante)coor{
