@@ -13,6 +13,7 @@ const NSUInteger ALWorldInitialWidth = 20;
 const NSUInteger ALWorldInitialHeight = 40;
 
 @implementation ALMap
+
 -(id)initWorldWithDefaultSize{
     self = [super init];
     if (self) {

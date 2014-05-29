@@ -9,9 +9,10 @@
 #import "ALPath.h"
 #import "ALPoint.h"
 
+
 @implementation ALPath
 
--(NSArray *)coordinateStack{
+-(NSMutableArray *)coordinateStack{
     if (!_coordinateStack) {
         _coordinateStack = [[NSMutableArray alloc]init];
     }

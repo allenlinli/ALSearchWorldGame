@@ -21,3 +21,4 @@ typedef struct {
 
 ALCoordiante ALCoordianteMake (NSInteger width, NSInteger height);
 
+bool isCoorEqual(ALCoordiante coor1,ALCoordiante coor2);

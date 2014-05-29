@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ALPath.h"
 #import "ALMap.h"
 
 @class ALPath;
+@class ALMap;
 
 /*!
  負責給出最短的路徑

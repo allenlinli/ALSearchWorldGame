@@ -13,12 +13,23 @@
 
 const NSTimeInterval walkTimeInterval = 0.5;
 
+
+typedef enum : NSUInteger {
+    ALWalkerDirectionUp,
+    ALWalkerDirectionDown,
+    ALWalkerDirectionLeft,
+    ALWalkerDirectionRight
+} ALWalkerDirection;
+
+
 @interface ALViewController () <ALWorldViewDatasource>
 
 @property (weak, nonatomic) IBOutlet ALWorldView *worldView;
 
 @property (strong, nonatomic) ALMap *map;
 
+@property (assign, nonatomic) ALCoordiante coorOfWalker;
+@property (assign, nonatomic) NSUInteger moveCount;
 
 @end
 
@@ -36,22 +47,17 @@ const NSTimeInterval walkTimeInterval = 0.5;
     
     ALPath *shortestPath = [explorer exploreShortestPathWithMap:self.map];
     
-    ALCoordiante coorOfWalker = ALCoordianteMake(self.map.startPoint.coor.x, self.map.startPoint.coor.y);
-    
-    NSValue *valueOfCoorOfWalker = [NSValue value:&coorOfWalker withObjCType:@encode(ALCoordiante)];
+
     
 
-    //根據最短路徑，用動畫的walker逐秒顯示出來
-    
+    //# 根據最短路徑，用動畫的walker逐秒顯示出來
+    //## 開始一步一步走
+    self.moveCount = 0;
     NSInvocation *timerInvocation = [NSInvocation invocationWithMethodSignature:
-                       [self methodSignatureForSelector:@selector(walker:takeAWalkOnShortestPath:)]];
-    
-    // configure invocation
-    [timerInvocation setSelector:@selector(walker:takeAWalkOnShortestPath:)];
+                       [self methodSignatureForSelector:@selector(takeAWalkOnShortestPath:)]];
+    [timerInvocation setSelector:@selector(takeAWalkOnShortestPath:)];
     [timerInvocation setTarget:self];
-    [timerInvocation setArgument:&valueOfCoorOfWalker atIndex:2];   // argument indexing is offset by 2 hidden args
-    [timerInvocation setArgument:&shortestPath atIndex:3];
-    
+    [timerInvocation setArgument:&shortestPath atIndex:2];
     [NSTimer scheduledTimerWithTimeInterval:walkTimeInterval
                                             invocation:timerInvocation
                                                repeats:YES];
@@ -93,10 +99,19 @@ const NSTimeInterval walkTimeInterval = 0.5;
 
 #pragma mark -
 
--(void)walker:(NSValue *)valueOfCoorOfWalker takeAWalkOnShortestPath:(ALPath *)shortestPath
+-(void)takeAWalkOnShortestPath:(ALPath *)shortestPath
 {
-    
-    [self.worldView setNeedsDisplay];
+//    ALPoint *point = shortestPath.coordinateStack[self.moveCount];
+//    
+//    self.coorOfWalker = point.coor;
+//    
+//    self.moveCount++;
+//    
+//    [self.worldView setNeedsDisplay];
+}
+
+-(ALCoordiante)walkerCoordinateForWorldView:(ALWorldView *)worldView{
+    return self.coorOfWalker;
 }
 
 @end

@@ -25,6 +25,8 @@ typedef enum : NSUInteger {
 
 -(ALCoordiante)startPointCoordinateForWorldView:(ALWorldView *)worldView;
 -(ALCoordiante)endPointCoordinateForWorldView:(ALWorldView *)worldView;
+
+-(ALCoordiante)walkerCoordinateForWorldView:(ALWorldView *)worldView;
 @end
 
 @interface ALWorldView : UIView

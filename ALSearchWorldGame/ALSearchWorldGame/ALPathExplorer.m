@@ -8,25 +8,53 @@
 
 #import "ALPathExplorer.h"
 #import "ALPath.h"
+#import "ALMap.h"
 
 @interface ALPathExplorer ()
-@property (strong, nonatomic) ALMap *map;
-@property (strong, nonatomic) NSMutableArray *pathsQueue; //包含很多個path的queue
 @end
 
 @implementation ALPathExplorer
 
 -(ALPath *)exploreShortestPathWithMap:(ALMap *)map{
-    self.map = map;
-    self.pathsQueue = [[self class] newPathsQueueWithMap:map];
+    NSMutableArray *pathsQueue = [[self class] newPathsQueueWithMap:map];
     
-    //拿出一個path
+    while (!pathsQueue && pathsQueue.count) {
+        //拿出一個path
+        ALPath *choosedPath = [self popFromPathsQueue:pathsQueue];
+
+        if(!choosedPath) return nil;
+        //找尋可以走的點
+        NSArray *exploredPoints = [self exploreRoadPointsWithPath:choosedPath map:map];
+        
+        //判斷是否是終點
+        //判斷是否走過
+        //把沒走過的點做成path，加進pathsQueue
+        for (ALPoint *newPoint in exploredPoints) {
+            switch (newPoint.roadState) {
+                    
+                case ALPointRoadStateEnd:{
+                    [choosedPath pushWithCoordinate:newPoint.coor];
+                    return choosedPath;
+                }
+                    break;
+                    
+                case ALPointRoadStateRoad:{
+                    if (newPoint.searchState == ALPointSearchStateNew) {
+                        [map changePointAtCoor:newPoint.coor withSearchState:ALPointSearchStateWalked];
+                        [choosedPath pushWithCoordinate:newPoint.coor];
+                        [self pushToPathsQueue:pathsQueue with:choosedPath];
+                    }
+                    
+                }
+                    break;
+                    
+                default:
+                    NSAssert(NO, @"");
+                    break;
+            }
+        }
+    }
     
-    //找尋可以走、且未走過的新點
-    
-    //把新點的path加入queue
-    
-    //更新地圖
     
     return nil;
 }
@@ -42,61 +70,19 @@
     return localPathsQueue;
 }
 
--(void)exploreOnePath{
-
-    ALPath *choosedPath = [self popFromPathsQueue];
-    [self explorePath:choosedPath withMap:self.map];
-    
-}
-
--(void)explorePath:(ALPath *)choosedPath withMap:(ALMap *)map{
-    
-    while (!choosedPath) {
-        NSArray *exploredPoints = [self exploredPointsWithPath:choosedPath map:map];
-        for (ALPoint *newPoint in exploredPoints) {
-            switch (newPoint.roadState) {
-                    
-                case ALPointRoadStateEnd:{
-                    [choosedPath pushWithCoordinate:newPoint.coor];
-//                    _shortestPath = choosedPath;
-                    return;
-                }
-                    break;
-                    
-                case ALPointRoadStateRoad:{
-                    if (newPoint.searchState == ALPointSearchStateNew) {
-                        [self.map changePointAtCoor:newPoint.coor withSearchState:ALPointSearchStateWalked];
-                        ALPath *newPath = [choosedPath copy];
-                        [newPath pushWithCoordinate:newPoint.coor];
-                        [self pushToPathsQueueWith:newPath];
-                    }
-                    
-                }
-                    break;
-                    
-                default:
-                    NSAssert(NO, @"");
-                    break;
-            }
-        }
-    }
-    
-}
-
--(NSArray *)exploredPointsWithPath:(ALPath *)path map:(ALMap *)map{
+-(NSArray *)exploreRoadPointsWithPath:(ALPath *)path map:(ALMap *)map{
     ALCoordiante coor = path.headPointCoordinate;
-    
     
     NSMutableArray *roadPoints = [[NSMutableArray alloc]init];
     for (NSInteger i = -1; i<=1; i=i+2) {
-        ALPoint *point = [self.map pointAtCoor:ALCoordianteMake(coor.x+i, coor.y)];
+        ALPoint *point = [map pointAtCoor:ALCoordianteMake(coor.x+i, coor.y)];
         if (point.roadState == ALPointRoadStateRoad || point.roadState == ALPointRoadStateEnd) {
             [roadPoints addObject:point];
         }
     }
     
     for (NSInteger i = -1; i<=1; i=i+2) {
-        ALPoint *point = [self.map pointAtCoor:ALCoordianteMake(coor.x, coor.y+i)];
+        ALPoint *point = [map pointAtCoor:ALCoordianteMake(coor.x, coor.y+i)];
         if (point.roadState == ALPointRoadStateRoad || point.roadState == ALPointRoadStateEnd) {
             [roadPoints addObject:point];
         }
@@ -106,20 +92,19 @@
     return [roadPoints copy];
 }
 
-//-(BOOL)isPointAEndPoint:(ALPoint *)point{
-//    return [ALPoint isCoordinateEqualWithPoint:point withAnotherPoint:self.map.endPoint];
-//}
-
--(ALPath *)popFromPathsQueue{
-    if (!self.pathsQueue) {
+-(ALPath *)popFromPathsQueue:(NSMutableArray *)pathsQueue
+{
+    if (!pathsQueue) {
         return nil;
     }
     
-    return [self.pathsQueue firstObject];
+    ALPath *firstPath = pathsQueue[0];
+    [pathsQueue removeObjectAtIndex:0];
+    return firstPath;
 }
 
--(void)pushToPathsQueueWith:(ALPath *)path{
-    [_pathsQueue addObject:path];
+-(void)pushToPathsQueue:(NSMutableArray *)pathsQueue with:(ALPath *)path{
+    [pathsQueue addObject:path];
 }
 
 

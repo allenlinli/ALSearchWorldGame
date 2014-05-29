@@ -26,3 +26,7 @@ ALCoordiante ALCoordianteMake (NSInteger x, NSInteger y){
     return coorindate;
 }
 
+bool isCoorEqual(ALCoordiante coor1,ALCoordiante coor2){
+    return (coor1.x == coor2.x && coor1.y == coor2.y);
+}
+
