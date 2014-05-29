@@ -15,7 +15,7 @@
 -(id)copy
 {
     ALPath *path = [[ALPath alloc]init];
-    path.coordinateStack = self.coordinateStack;
+    path.coordinateStack = [self.coordinateStack mutableCopy];
     
     return path;
 }

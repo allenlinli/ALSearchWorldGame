@@ -20,11 +20,18 @@
     NSMutableArray *pathsQueue = [[self class] newPathsQueueWithMap:map];
     map.startPoint.searchState = ALPointSearchStateWalked;
     
+    NSUInteger loopCount = 0;
     while (pathsQueue.count) {
+        
+        //Printer
+//        NSLog(@"L O O P :%i",loopCount);
+//        loopCount++;
+//        for (ALPath *path in pathsQueue) {
+//            [ALPrinterClass printPath:path];
+//        }
+        
         //拿出一個path
         ALPath *choosedPath = [self popFromPathsQueue:pathsQueue];
-        
-//        NSLog(@"choosedPath head:coor(%i,%i)",choosedPath.headPointCoordinate.x,choosedPath.headPointCoordinate.y);
         
         if(!choosedPath) return nil;
         //找尋可以走的點
