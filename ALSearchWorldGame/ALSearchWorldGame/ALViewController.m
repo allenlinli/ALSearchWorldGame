@@ -8,10 +8,29 @@
 
 #import "ALViewController.h"
 #import "ALWorldView.h"
+#import "ALPathExplorer.h"
+
+
+const NSTimeInterval walkTimeInterval = 0.5;
+
+
+typedef enum : NSUInteger {
+    ALWalkerDirectionUp,
+    ALWalkerDirectionDown,
+    ALWalkerDirectionLeft,
+    ALWalkerDirectionRight
+} ALWalkerDirection;
+
 
 @interface ALViewController () <ALWorldViewDatasource>
-@property (strong, nonatomic) ALWorld *world;
-@property (weak, nonatomic) IBOutlet ALWorldView *WorldView;
+
+@property (weak, nonatomic) IBOutlet ALWorldView *worldView;
+
+@property (strong, nonatomic) ALMap *map;
+
+@property (assign, nonatomic) ALCoordiante coorOfWalker;
+@property (assign, nonatomic) NSUInteger moveCount;
+
 @end
 
 @implementation ALViewController
@@ -19,25 +38,51 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	
+    self.worldView.dataSource = self;
     
-    self.world = [[ALWorld alloc] initWithDefaultData];
-    self.WorldView.dataSource = self;
-    [self.WorldView setNeedsDisplay];
+    self.map = [[ALMap alloc]initWithDefaultData];
+    
+    ALPathExplorer *explorer = [[ALPathExplorer alloc] init];
+    
+    ALPath *shortestPath = [explorer exploreShortestPathWithMap:self.map];
+    
+    if (shortestPath) {
+        NSLog(@"FOUND shortestPath");
+    }
+    
+    for (NSValue *value in shortestPath.coordinateStack) {
+        ALCoordiante coor;
+        [value getValue:&coor];
+        NSLog(@"coor x:%i  y:%i",coor.x,coor.y);
+    }
+
+    //# 根據最短路徑，用動畫的walker逐秒顯示出來
+    //## 開始一步一步走
+    self.moveCount = 0;
+    NSInvocation *timerInvocation = [NSInvocation invocationWithMethodSignature:
+                       [self methodSignatureForSelector:@selector(takeAWalkOnShortestPath:)]];
+    [timerInvocation setSelector:@selector(takeAWalkOnShortestPath:)];
+    [timerInvocation setTarget:self];
+    [timerInvocation setArgument:&shortestPath atIndex:2];
+    [NSTimer scheduledTimerWithTimeInterval:walkTimeInterval
+                                            invocation:timerInvocation
+                                               repeats:YES];
 }
+
 
 #pragma mark - WorldView Datasource method
 
 -(NSUInteger)nuberOfRowsForWorldView:(ALWorldView *)worldView{
-    return self.world.size.height;
+    return self.map.size.height;
 }
 
 -(NSUInteger)nuberOfColumnsForWorldView:(ALWorldView *)worldView{
-    return self.world.size.width;
+    return self.map.size.width;
 }
 
 -(WorldViewCellRoadState)worldView:(ALWorldView *)worldView roadStateAtCoordinate:(ALCoordiante)coor{
-    switch ([self.world pointAtCoor:coor].roadState) {
+    switch ([self.map pointAtCoor:coor].roadState) {
         case ALPointRoadStateRoad:
             return WorldViewCellRoadStateRoad;
             break;
@@ -50,25 +95,30 @@
     return WorldViewCellRoadStateWall;
 }
 
--(WorldViewCellSearchState)worldView:(ALWorldView *)worldView searchStateAtCoordinate:(ALCoordiante)coor{
-    switch ([self.world pointAtCoor:coor].roadState) {
-        case ALPointSearchStateWalked:
-            return WorldViewCellSearchStateWalked;
-            break;
-        case ALPointSearchStateNew:
-            return WorldViewCellSearchStateNew;
-            break;
-        default:
-            break;
-    }
-    return WorldViewCellSearchStateNew;
-}
 
 -(ALCoordiante)startPointCoordinateForWorldView:(ALWorldView *)worldView{
-    return self.world.startPoint.coor;
+    return self.map.startPoint.coor;
 }
 
 -(ALCoordiante)endPointCoordinateForWorldView:(ALWorldView *)worldView{
-    return self.world.endPoint.coor;
+    return self.map.endPoint.coor;
 }
+
+#pragma mark -
+
+-(void)takeAWalkOnShortestPath:(ALPath *)shortestPath
+{
+//    ALPoint *point = shortestPath.coordinateStack[self.moveCount];
+//    
+//    self.coorOfWalker = point.coor;
+//    
+//    self.moveCount++;
+//    
+//    [self.worldView setNeedsDisplay];
+}
+
+-(ALCoordiante)walkerCoordinateForWorldView:(ALWorldView *)worldView{
+    return self.coorOfWalker;
+}
+
 @end

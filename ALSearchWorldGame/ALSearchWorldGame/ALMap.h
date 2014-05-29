@@ -17,7 +17,7 @@ struct ALCoordiante;
 extern const NSUInteger ALWorldInitialWidth;
 extern const NSUInteger ALWorldInitialHeight;
 
-@interface ALWorld : NSObject
+@interface ALMap : NSObject
 
 #pragma - CREATE
 @property (readonly, strong, nonatomic) NSArray *twoDPoints; //產生的座標點皆是正數

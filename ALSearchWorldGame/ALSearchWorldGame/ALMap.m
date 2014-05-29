@@ -6,13 +6,14 @@
 //  Copyright (c) 2014 Raccoonism. All rights reserved.
 //
 
-#import "ALWorld.h"
+#import "ALMap.h"
 #import "ALPoint.h"
 
 const NSUInteger ALWorldInitialWidth = 20;
 const NSUInteger ALWorldInitialHeight = 40;
 
-@implementation ALWorld
+@implementation ALMap
+
 -(id)initWorldWithDefaultSize{
     self = [super init];
     if (self) {
@@ -52,6 +53,8 @@ const NSUInteger ALWorldInitialHeight = 40;
             ALPointRoadState state = (num.intValue==0)? ALPointRoadStateRoad:ALPointRoadStateWall;
             
             ALPoint *point = [[ALPoint alloc] initWithCoor:ALCoordianteMake(column, row) state:state];
+            
+            point.searchState = ALPointSearchStateNew;
             
             [rowArray addObject:point];
         }
@@ -100,17 +103,16 @@ const NSUInteger ALWorldInitialHeight = 40;
     //產生隨機的起點和中點，兩個點不能一樣
     NSUInteger randomStartPointCoorX = arc4random() % self.size.width;
     NSUInteger randomStartPointCoorY = arc4random() % self.size.height;
-    _startPoint = [[ALPoint alloc] initWithCoordinateX:randomStartPointCoorX coordinateY:randomStartPointCoorY state:ALPointRoadStateRoad];
+    _startPoint = [[ALPoint alloc] initWithCoor:ALCoordianteMake(randomStartPointCoorX, randomStartPointCoorY) state:ALPointRoadStateStart];
     
     do {
         NSUInteger randomEndPointCoorX = arc4random() % self.size.width;
         NSUInteger randomEndPointCoorY = arc4random() % self.size.height;
-        _endPoint = [[ALPoint alloc] initWithCoordinateX:randomEndPointCoorX coordinateY:randomEndPointCoorY state:ALPointRoadStateRoad];
+        _endPoint = [[ALPoint alloc] initWithCoor:ALCoordianteMake(randomEndPointCoorX, randomEndPointCoorY) state:ALPointRoadStateEnd];
     } while (_endPoint.coor.x == _startPoint.coor.x && _endPoint.coor.y == _startPoint.coor.y);
     
     return self;
 }
-
 
 -(ALPoint *) pointAtCoor:(ALCoordiante) coor {
     if (coor.x >= self.size.width || coor.y >= self.size.height) {

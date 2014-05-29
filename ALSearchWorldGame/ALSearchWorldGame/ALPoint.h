@@ -18,8 +18,8 @@ typedef enum {
 }ALPointRoadState;
 
 typedef enum {
-    ALPointSearchStateWalked,
     ALPointSearchStateNew,
+    ALPointSearchStateWalked,
     ALPointSearchStateTotalCount
 }ALPointSearchState;
 
@@ -28,9 +28,10 @@ typedef enum {
 @property (assign, nonatomic) ALPointSearchState searchState;
 @property (assign, nonatomic) ALCoordiante coor;
 
++(BOOL)isCoordinateEqualWithPoint:(ALPoint *)pointA withAnotherPoint:(ALPoint *)pointB;
+
 -(id)initWithCoor:(ALCoordiante)coor;
 -(id)initWithRandomRoadStateOfPointAtCoor:(ALCoordiante)coor;
 -(id)initWithCoor:(ALCoordiante)coor state:(ALPointRoadState)state;
--(id)initWithCoordinateX:(NSInteger)coordinateX coordinateY:(NSInteger)coordinateY state:(ALPointRoadState)state;
 
 @end
