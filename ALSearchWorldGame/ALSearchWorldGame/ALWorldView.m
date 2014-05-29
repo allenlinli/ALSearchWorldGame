@@ -65,34 +65,6 @@
     [self drawCellAtCoordinate:ALCoordianteMake(startPoint.x, startPoint.y) color:[UIColor yellowColor]  character:@"S"];
     [self drawCellAtCoordinate:ALCoordianteMake(endPoint.x, endPoint.y) color:[UIColor blueColor]  character:@"E"];
 
-    
-//    //畫出格子
-//    for (NSUInteger row = 0; row <= self.numberOfRows; row++) {
-//        [self drawHorizontalLineAtCoordinateY:row * self.cellHeight];
-//    }
-//    
-//    for (NSUInteger column = 0; column <= self.numberOfColumns; column++) {
-//        [self drawVerticalLineAtCoordinateX:column * self.cellWidth];
-//    }
-//    
-    
-//    //畫出文字
-//    for (NSUInteger row = 0; row < self.numberOfRows; row++) {
-//        for (NSUInteger column = 0; column < self.numberOfColumns; column++) {
-//            CGPoint point;
-//            point.y = row * self.cellHeight;
-//            point.x = column * self.cellWidth;
-//            
-//            NSString *character = [self.dataSource worldView:self characterAtRow:row column:column];
-//            
-//            UIFont *font = [UIFont fontWithName:@"Courier" size:CharacterDefaultSize];
-//            NSMutableParagraphStyle *style = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
-//            style.alignment = NSTextAlignmentCenter;
-//            NSDictionary *attr = @{ NSFontAttributeName: font,
-//                                    NSParagraphStyleAttributeName: style };
-//            [character drawInRect:CGRectMake(point.x, point.y + heightOffsetOfCharacterOfVerticalMiddle, self.cellWidth, self.cellHeight) withAttributes:attr];
-//        }
-//    }
 }
 
 -(void)drawCellAtCoordinate:(ALCoordiante)coor color:(UIColor *)color character:(NSString *)character{

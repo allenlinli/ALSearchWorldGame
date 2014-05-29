@@ -7,8 +7,30 @@
 //
 
 #import "ALPathExplorer.h"
+#import "ALPath.h"
+
+@interface ALPathExplorer ()
+@property (strong, nonatomic) ALMap *map;
+@property (strong, nonatomic) NSMutableArray *pathsQueue; //包含很多個path的queue
+@end
 
 @implementation ALPathExplorer
+
+-(ALPath *)exploreShortestPathWithMap:(ALMap *)map{
+    self.map = map;
+    self.pathsQueue = [[self class] newPathsQueueWithMap:map];
+    
+    //拿出一個path
+    
+    //找尋可以走、且未走過的新點
+    
+    //把新點的path加入queue
+    
+    //更新地圖
+    
+    return nil;
+}
+
 
 +(NSMutableArray *)newPathsQueueWithMap:(ALMap *)map{
     NSMutableArray *localPathsQueue = [[NSMutableArray alloc]init];
@@ -36,7 +58,7 @@
                     
                 case ALPointRoadStateEnd:{
                     [choosedPath pushWithCoordinate:newPoint.coor];
-                    _shortestPath = choosedPath;
+//                    _shortestPath = choosedPath;
                     return;
                 }
                     break;
@@ -104,26 +126,3 @@
 @end
 
 
-@implementation ALPath 
-
--(NSArray *)coordinateStack{
-    if (!_coordinateStack) {
-        _coordinateStack = [[NSMutableArray alloc]init];
-    }
-    return _coordinateStack;
-}
-
--(ALCoordiante)headPointCoordinate{
-    return  [(ALPoint *)self.coordinateStack.firstObject coor];
-}
-
--(void)pushWithCoordinate:(ALCoordiante)coor{
-    NSValue *value = [NSValue value:&coor withObjCType:@encode(ALCoordiante)];
-    [self.coordinateStack addObject:value];
-}
--(void)pop{
-    [self.coordinateStack removeLastObject];
-}
-
-
-@end

@@ -53,6 +53,8 @@ const NSUInteger ALWorldInitialHeight = 40;
             
             ALPoint *point = [[ALPoint alloc] initWithCoor:ALCoordianteMake(column, row) state:state];
             
+            point.searchState = ALPointSearchStateNew;
+            
             [rowArray addObject:point];
         }
         [twoDArray addObject:rowArray];
@@ -100,12 +102,12 @@ const NSUInteger ALWorldInitialHeight = 40;
     //產生隨機的起點和中點，兩個點不能一樣
     NSUInteger randomStartPointCoorX = arc4random() % self.size.width;
     NSUInteger randomStartPointCoorY = arc4random() % self.size.height;
-    _startPoint = [[ALPoint alloc] initWithCoordinateX:randomStartPointCoorX coordinateY:randomStartPointCoorY state:ALPointRoadStateRoad];
+    _startPoint = [[ALPoint alloc] initWithCoor:ALCoordianteMake(randomStartPointCoorX, randomStartPointCoorY) state:ALPointRoadStateStart];
     
     do {
         NSUInteger randomEndPointCoorX = arc4random() % self.size.width;
         NSUInteger randomEndPointCoorY = arc4random() % self.size.height;
-        _endPoint = [[ALPoint alloc] initWithCoordinateX:randomEndPointCoorX coordinateY:randomEndPointCoorY state:ALPointRoadStateRoad];
+        _endPoint = [[ALPoint alloc] initWithCoor:ALCoordianteMake(randomEndPointCoorX, randomEndPointCoorY) state:ALPointRoadStateEnd];
     } while (_endPoint.coor.x == _startPoint.coor.x && _endPoint.coor.y == _startPoint.coor.y);
     
     return self;

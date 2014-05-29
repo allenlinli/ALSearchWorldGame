@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+const NSTimeInterval walkTimeInterval;
+
 @interface ALViewController : UIViewController
 
 @end

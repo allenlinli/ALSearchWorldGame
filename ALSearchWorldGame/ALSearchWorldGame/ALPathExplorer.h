@@ -11,25 +11,19 @@
 
 @class ALPath;
 
+/*!
+ 負責給出最短的路徑
+ 
+ */
+
+@class ALPath;
+
 @interface ALPathExplorer : NSObject
-@property (strong, nonatomic) NSMutableArray *pathsQueue; //包含很多個path的queue
-@property (strong, nonatomic) ALMap *map;
-@property (strong, readonly,nonatomic) ALPath *shortestPath;
 
-+(NSMutableArray *)newPathsQueueWithMap:(ALMap *)map;
 
--(void)explorePath:(ALPath *)path withMap:(ALMap *)map;
-
+-(ALPath *)exploreShortestPathWithMap:(ALMap *)map;
 
 @end
 
 
-@interface ALPath : NSObject
-@property (strong, nonatomic) NSMutableArray *coordinateStack; //包含很多個ALCoordinate  //不知道怎麼樣readOnly
-@property (assign, readonly, nonatomic) ALCoordiante headPointCoordinate;
 
-
--(void)pushWithCoordinate:(ALCoordiante)coor;
--(void)pop;
-
-@end

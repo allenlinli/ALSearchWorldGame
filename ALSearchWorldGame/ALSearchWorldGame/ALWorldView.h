@@ -15,10 +15,6 @@ typedef enum : NSUInteger {
     WorldViewCellRoadStateWalker,
 } WorldViewCellRoadState;
 
-typedef enum : NSUInteger {
-    WorldViewCellSearchStateNew,
-    WorldViewCellSearchStateWalked,
-} WorldViewCellSearchState;
 
 @class ALWorldView;
 
@@ -26,7 +22,6 @@ typedef enum : NSUInteger {
 -(NSUInteger)nuberOfRowsForWorldView:(ALWorldView *)worldView;
 -(NSUInteger)nuberOfColumnsForWorldView:(ALWorldView *)worldView;
 -(WorldViewCellRoadState)worldView:(ALWorldView *)worldView roadStateAtCoordinate:(ALCoordiante)coor;
--(WorldViewCellSearchState)worldView:(ALWorldView *)worldView searchStateAtCoordinate:(ALCoordiante)coor;
 
 -(ALCoordiante)startPointCoordinateForWorldView:(ALWorldView *)worldView;
 -(ALCoordiante)endPointCoordinateForWorldView:(ALWorldView *)worldView;

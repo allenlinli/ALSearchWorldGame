@@ -33,6 +33,5 @@ typedef enum {
 -(id)initWithCoor:(ALCoordiante)coor;
 -(id)initWithRandomRoadStateOfPointAtCoor:(ALCoordiante)coor;
 -(id)initWithCoor:(ALCoordiante)coor state:(ALPointRoadState)state;
--(id)initWithCoordinateX:(NSInteger)coordinateX coordinateY:(NSInteger)coordinateY state:(ALPointRoadState)state;
 
 @end
