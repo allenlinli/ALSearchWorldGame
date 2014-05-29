@@ -47,8 +47,11 @@ typedef enum : NSUInteger {
     
     ALPath *shortestPath = [explorer exploreShortestPathWithMap:self.map];
     
-
-    
+    for (NSValue *value in shortestPath.coordinateStack) {
+        ALCoordiante coor;
+        [value getValue:&coor];
+        NSLog(@"coor x:%i  y:%i",coor.x,coor.y);
+    }
 
     //# 根據最短路徑，用動畫的walker逐秒顯示出來
     //## 開始一步一步走

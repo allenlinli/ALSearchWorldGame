@@ -19,6 +19,6 @@ typedef struct {
     NSInteger y;
 } ALCoordiante;
 
-ALCoordiante ALCoordianteMake (NSInteger width, NSInteger height);
+ALCoordiante ALCoordianteMake (NSInteger x, NSInteger y);
 
 bool isCoorEqual(ALCoordiante coor1,ALCoordiante coor2);

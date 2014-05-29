@@ -18,10 +18,10 @@
 -(ALPath *)exploreShortestPathWithMap:(ALMap *)map{
     NSMutableArray *pathsQueue = [[self class] newPathsQueueWithMap:map];
     
-    while (!pathsQueue && pathsQueue.count) {
+    while (pathsQueue.count) {
         //拿出一個path
         ALPath *choosedPath = [self popFromPathsQueue:pathsQueue];
-
+        NSLog(@"choosedPath head:coor(%i,%i)",choosedPath.headPointCoordinate.x,choosedPath.headPointCoordinate.y);
         if(!choosedPath) return nil;
         //找尋可以走的點
         NSArray *exploredPoints = [self exploreRoadPointsWithPath:choosedPath map:map];
@@ -65,7 +65,7 @@
     
     ALPath *path = [[ALPath alloc]init];
     [path pushWithCoordinate:map.startPoint.coor];
-    [localPathsQueue addObject:localPathsQueue];
+    [localPathsQueue addObject:path];
     
     return localPathsQueue;
 }

@@ -8,7 +8,7 @@
 
 #import "ALPath.h"
 #import "ALPoint.h"
-
+#import "NSValue+ALCoordinate.h"
 
 @implementation ALPath
 
@@ -19,17 +19,15 @@
     return _coordinateStack;
 }
 
--(ALCoordiante)headPointCoordinate{
-    return  [(ALPoint *)self.coordinateStack.firstObject coor];
+-(ALCoordiante)headPointCoordinate{    
+    return [(NSValue *)self.coordinateStack.firstObject coordinate];
 }
 
 -(void)pushWithCoordinate:(ALCoordiante)coor{
-    NSValue *value = [NSValue value:&coor withObjCType:@encode(ALCoordiante)];
-    [self.coordinateStack addObject:value];
+    [self.coordinateStack addObject:[[NSValue class] valueWithCoordinate:coor]];
 }
 -(void)pop{
     [self.coordinateStack removeLastObject];
 }
-
 
 @end
