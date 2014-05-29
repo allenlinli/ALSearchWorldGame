@@ -12,6 +12,14 @@
 
 @implementation ALPath
 
+-(id)copy
+{
+    ALPath *path = [[ALPath alloc]init];
+    path.coordinateStack = self.coordinateStack;
+    
+    return path;
+}
+
 -(NSMutableArray *)coordinateStack{
     if (!_coordinateStack) {
         _coordinateStack = [[NSMutableArray alloc]init];

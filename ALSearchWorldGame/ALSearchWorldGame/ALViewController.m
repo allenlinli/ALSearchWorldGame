@@ -47,6 +47,10 @@ typedef enum : NSUInteger {
     
     ALPath *shortestPath = [explorer exploreShortestPathWithMap:self.map];
     
+    if (shortestPath) {
+        NSLog(@"FOUND shortestPath");
+    }
+    
     for (NSValue *value in shortestPath.coordinateStack) {
         ALCoordiante coor;
         [value getValue:&coor];

@@ -37,11 +37,6 @@
                BlueprintName = "ALSearchWorldGameTests"
                ReferencedContainer = "container:ALSearchWorldGame.xcodeproj">
             </BuildableReference>
-            <SkippedTests>
-               <Test
-                  Identifier = "ALPathExplorerTest/testExploreShortestPathWithMap">
-               </Test>
-            </SkippedTests>
          </TestableReference>
       </Testables>
       <MacroExpansion>

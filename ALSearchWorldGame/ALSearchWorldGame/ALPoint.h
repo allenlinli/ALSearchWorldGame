@@ -18,8 +18,8 @@ typedef enum {
 }ALPointRoadState;
 
 typedef enum {
-    ALPointSearchStateWalked,
     ALPointSearchStateNew,
+    ALPointSearchStateWalked,
     ALPointSearchStateTotalCount
 }ALPointSearchState;
 

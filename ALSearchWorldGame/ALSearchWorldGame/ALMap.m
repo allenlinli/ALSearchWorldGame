@@ -114,7 +114,6 @@ const NSUInteger ALWorldInitialHeight = 40;
     return self;
 }
 
-
 -(ALPoint *) pointAtCoor:(ALCoordiante) coor {
     if (coor.x >= self.size.width || coor.y >= self.size.height) {
         NSLog(@"[BUG]");
