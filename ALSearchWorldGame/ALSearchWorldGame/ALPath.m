@@ -20,7 +20,7 @@
     return path;
 }
 
--(NSMutableArray *)coordinateStack{
+-(NSArray *)coordinateStack{
     if (!_coordinateStack) {
         _coordinateStack = [[NSMutableArray alloc]init];
     }
@@ -32,10 +32,13 @@
 }
 
 -(void)pushWithCoordinate:(ALCoordiante)coor{
-    [self.coordinateStack addObject:[[NSValue class] valueWithCoordinate:coor]];
+    if (_coordinateStack) {
+        
+    }
+    [(NSMutableArray *)self.coordinateStack addObject:[[NSValue class] valueWithCoordinate:coor]];
 }
 -(void)pop{
-    [self.coordinateStack removeLastObject];
+    [(NSMutableArray *)self.coordinateStack removeLastObject];
 }
 
 @end
