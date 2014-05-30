@@ -14,13 +14,6 @@
 const NSTimeInterval walkTimeInterval = 0.5;
 
 
-typedef enum : NSUInteger {
-    ALWalkerDirectionUp,
-    ALWalkerDirectionDown,
-    ALWalkerDirectionLeft,
-    ALWalkerDirectionRight
-} ALWalkerDirection;
-
 
 @interface ALViewController () <ALWorldViewDatasource>
 
@@ -28,8 +21,6 @@ typedef enum : NSUInteger {
 
 @property (strong, nonatomic) ALMap *map;
 
-@property (assign, nonatomic) ALCoordiante coorOfWalker;
-@property (assign, nonatomic) NSUInteger moveCount;
 
 @end
 
@@ -59,15 +50,15 @@ typedef enum : NSUInteger {
 
     //# 根據最短路徑，用動畫的walker逐秒顯示出來
     //## 開始一步一步走
-    self.moveCount = 0;
-    NSInvocation *timerInvocation = [NSInvocation invocationWithMethodSignature:
-                       [self methodSignatureForSelector:@selector(takeAWalkOnShortestPath:)]];
-    [timerInvocation setSelector:@selector(takeAWalkOnShortestPath:)];
-    [timerInvocation setTarget:self];
-    [timerInvocation setArgument:&shortestPath atIndex:2];
-    [NSTimer scheduledTimerWithTimeInterval:walkTimeInterval
-                                            invocation:timerInvocation
-                                               repeats:YES];
+//    self.moveCount = 0;
+//    NSInvocation *timerInvocation = [NSInvocation invocationWithMethodSignature:
+//                       [self methodSignatureForSelector:@selector(takeAWalkOnShortestPath:)]];
+//    [timerInvocation setSelector:@selector(takeAWalkOnShortestPath:)];
+//    [timerInvocation setTarget:self];
+//    [timerInvocation setArgument:&shortestPath atIndex:2];
+//    [NSTimer scheduledTimerWithTimeInterval:walkTimeInterval
+//                                            invocation:timerInvocation
+//                                               repeats:YES];
 }
 
 
@@ -117,8 +108,8 @@ typedef enum : NSUInteger {
 //    [self.worldView setNeedsDisplay];
 }
 
--(ALCoordiante)walkerCoordinateForWorldView:(ALWorldView *)worldView{
-    return self.coorOfWalker;
-}
+//-(ALCoordiante)walkerCoordinateForWorldView:(ALWorldView *)worldView{
+//    return self.coorOfWalker;
+//}
 
 @end
