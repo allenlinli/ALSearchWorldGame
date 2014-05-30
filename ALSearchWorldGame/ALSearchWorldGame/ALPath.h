@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface ALPath : NSObject
-@property (strong, nonatomic) NSMutableArray *coordinateStack; //包含很多個ALCoordinate  //不知道怎麼樣readOnly
+@property (strong, nonatomic) NSArray *coordinateStack; //包含很多個ALCoordinate  //不知道怎麼樣readOnly
 @property (assign, readonly, nonatomic) ALCoordiante headPointCoordinate;
 
 

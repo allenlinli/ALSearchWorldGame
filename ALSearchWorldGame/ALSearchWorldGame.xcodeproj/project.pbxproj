@@ -12,6 +12,7 @@
 		E3AD8C481936EFDC00501247 /* ALPathExplorerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AD8C471936EFDC00501247 /* ALPathExplorerTest.m */; };
 		E3AD8C4A1937062A00501247 /* ALPathTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AD8C491937062A00501247 /* ALPathTest.m */; };
 		E3AD8C4D1937075400501247 /* NSValue+ALCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AD8C4C1937075400501247 /* NSValue+ALCoordinate.m */; };
+		E3AD8C5019372C6B00501247 /* ALPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = E3AD8C4F19372C6B00501247 /* ALPrinter.m */; };
 		E3C34E89192D9D7600CF6D14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C34E88192D9D7600CF6D14 /* Foundation.framework */; };
 		E3C34E8B192D9D7600CF6D14 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C34E8A192D9D7600CF6D14 /* CoreGraphics.framework */; };
 		E3C34E8D192D9D7600CF6D14 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3C34E8C192D9D7600CF6D14 /* UIKit.framework */; };
@@ -50,6 +51,8 @@
 		E3AD8C491937062A00501247 /* ALPathTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPathTest.m; sourceTree = "<group>"; };
 		E3AD8C4B1937075400501247 /* NSValue+ALCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+ALCoordinate.h"; sourceTree = "<group>"; };
 		E3AD8C4C1937075400501247 /* NSValue+ALCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+ALCoordinate.m"; sourceTree = "<group>"; };
+		E3AD8C4E19372C6B00501247 /* ALPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALPrinter.h; sourceTree = "<group>"; };
+		E3AD8C4F19372C6B00501247 /* ALPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALPrinter.m; sourceTree = "<group>"; };
 		E3C34E85192D9D7600CF6D14 /* ALSearchWorldGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ALSearchWorldGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3C34E88192D9D7600CF6D14 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E3C34E8A192D9D7600CF6D14 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -123,6 +126,8 @@
 		E3AD8C391935CBFC00501247 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E3AD8C4E19372C6B00501247 /* ALPrinter.h */,
+				E3AD8C4F19372C6B00501247 /* ALPrinter.m */,
 				E3AD8C3D1936CCCC00501247 /* Explorer */,
 				E3C34E9D192D9D7600CF6D14 /* ALViewController.h */,
 				E3C34E9E192D9D7600CF6D14 /* ALViewController.m */,
@@ -344,6 +349,7 @@
 				E3C34ECA192DAD0500CF6D14 /* ALWorldView.m in Sources */,
 				E3AD8C401936CCEA00501247 /* ALPath.m in Sources */,
 				E3C34EC3192DA42000CF6D14 /* ALPoint.m in Sources */,
+				E3AD8C5019372C6B00501247 /* ALPrinter.m in Sources */,
 				E3AD8C3C1935CDF500501247 /* ALPathExplorer.m in Sources */,
 				E3C34E99192D9D7600CF6D14 /* ALAppDelegate.m in Sources */,
 			);

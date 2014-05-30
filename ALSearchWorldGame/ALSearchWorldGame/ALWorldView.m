@@ -11,10 +11,8 @@
 @interface ALWorldView ()
 @property (assign,nonatomic) NSUInteger numberOfRows;
 @property (assign,nonatomic) NSUInteger numberOfColumns;
-
 @property (assign,nonatomic) CGFloat cellWidth;
 @property (assign,nonatomic) CGFloat cellHeight;
-
 @end
 
 @implementation ALWorldView
@@ -46,11 +44,12 @@
     
     for (NSUInteger row=0; row < self.numberOfRows ; row++) {
         for (NSUInteger column = 0; column < self.numberOfColumns ; column++) {
+            
             switch ([self.dataSource worldView:self roadStateAtCoordinate:ALCoordianteMake(column, row)]) {
                 case WorldViewCellRoadStateWall:
                     break;
                 case WorldViewCellRoadStateRoad:
-                    [self drawCellAtCoordinate:ALCoordianteMake(column, row) color:[UIColor grayColor] character:nil];
+                    [self drawCellAtCoordinate:ALCoordianteMake(column, row) color:[UIColor grayColor] character:[NSString stringWithFormat:@"(%i,%i)",column,row]];
                     break;
                 default:
                     break;
@@ -72,18 +71,21 @@
         color = [UIColor whiteColor];
     }
     
-    
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     CGContextSetLineWidth(context, 1.0);
     CGRect rectangle = CGRectMake(coor.x*self.cellWidth,coor.y*self.cellHeight,self.cellWidth,self.cellHeight);
-    if (character) {
-        [character drawAtPoint:CGPointMake(coor.x*self.cellWidth,coor.y*self.cellHeight) withAttributes:nil];
-    }
     CGContextAddRect(context, rectangle);
     CGContextStrokePath(context);
     CGContextSetFillColorWithColor(context, color.CGColor);
     CGContextFillRect(context, rectangle);
+    
+    if (character) {
+        UIFont *font = [UIFont fontWithName:@"Helvetica Neue" size:6.0];
+        
+        NSDictionary *attrsDictionary =@{ NSFontAttributeName: font};
+        [character drawAtPoint:CGPointMake(coor.x*self.cellWidth,coor.y*self.cellHeight) withAttributes:attrsDictionary];
+    }
 }
 
 @end

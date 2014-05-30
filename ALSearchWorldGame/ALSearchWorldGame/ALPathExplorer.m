@@ -20,11 +20,18 @@
     NSMutableArray *pathsQueue = [[self class] newPathsQueueWithMap:map];
     map.startPoint.searchState = ALPointSearchStateWalked;
     
+    NSUInteger loopCount = 0;
     while (pathsQueue.count) {
+        
+        //Printer
+//        NSLog(@"L O O P :%i",loopCount);
+//        loopCount++;
+//        for (ALPath *path in pathsQueue) {
+//            [ALPrinterClass printPath:path];
+//        }
+        
         //拿出一個path
         ALPath *choosedPath = [self popFromPathsQueue:pathsQueue];
-        
-//        NSLog(@"choosedPath head:coor(%i,%i)",choosedPath.headPointCoordinate.x,choosedPath.headPointCoordinate.y);
         
         if(!choosedPath) return nil;
         //找尋可以走的點
@@ -80,17 +87,18 @@
 -(NSArray *)exploreNewRoadPointsWithPath:(ALPath *)path map:(ALMap *)map{
     ALCoordiante coor = path.headPointCoordinate;
     
-    NSMutableArray *roadPoints = [[NSMutableArray alloc]init];
-    for (NSInteger i = -1; i<=1; i=i+2) {
-        ALPoint *point = [map pointAtCoor:ALCoordianteMake(coor.x+i, coor.y)];
-        if ((point.roadState == ALPointRoadStateRoad || point.roadState == ALPointRoadStateEnd)
-            && point.searchState == ALPointSearchStateNew) {
-            [roadPoints addObject:point];
+    NSMutableArray *roadPoints = [[NSMutableArray alloc] init];
+    NSArray *shifts = @[@[@1, @0], @[@(-1), @0],@[@0, @1], @[@0, @(-1)]];
+    for (NSArray *a in shifts) {
+        NSInteger shiftX = coor.x + [a[0] intValue];
+        NSInteger shiftY = coor.y + [a[1] intValue];
+        if (shiftX < 0 || shiftX >= map.size.width) {
+            continue;
         }
-    }
-    
-    for (NSInteger i = -1; i<=1; i=i+2) {
-        ALPoint *point = [map pointAtCoor:ALCoordianteMake(coor.x, coor.y+i)];
+        if (shiftY < 0 || shiftY >= map.size.height) {
+            continue;
+            }
+        ALPoint *point = [map pointAtCoor:ALCoordianteMake(shiftX, shiftY)];
         if ((point.roadState == ALPointRoadStateRoad || point.roadState == ALPointRoadStateEnd)
             && point.searchState == ALPointSearchStateNew) {
             [roadPoints addObject:point];
