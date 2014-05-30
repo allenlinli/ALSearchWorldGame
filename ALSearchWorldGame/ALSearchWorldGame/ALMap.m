@@ -64,7 +64,7 @@ const NSUInteger ALWorldInitialHeight = 40;
     _twoDPoints = twoDArray;
     
     
-    _startPoint = [self pointAtCoor:ALCoordianteMake(1, 1)];
+    _startPoint = [self pointAtCoor:ALCoordianteMake(8, 1)];
     _startPoint.roadState = ALPointRoadStateStart;
     
     _endPoint = [self pointAtCoor:ALCoordianteMake(8, 7)];

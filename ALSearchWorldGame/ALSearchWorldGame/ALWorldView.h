@@ -26,9 +26,11 @@ typedef enum : NSUInteger {
 -(ALCoordiante)startPointCoordinateForWorldView:(ALWorldView *)worldView;
 -(ALCoordiante)endPointCoordinateForWorldView:(ALWorldView *)worldView;
 
--(ALCoordiante)walkerCoordinateForWorldView:(ALWorldView *)worldView;
+//-(ALCoordiante)walkerCoordinateForWorldView:(ALWorldView *)worldView;
 @end
 
 @interface ALWorldView : UIView
 @property (weak, nonatomic) id <ALWorldViewDatasource> dataSource;
+@property (readonly, nonatomic) CGFloat cellWidth;
+@property (readonly, nonatomic) CGFloat cellHeight;
 @end

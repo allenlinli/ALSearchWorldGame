@@ -11,10 +11,8 @@
 @interface ALWorldView ()
 @property (assign,nonatomic) NSUInteger numberOfRows;
 @property (assign,nonatomic) NSUInteger numberOfColumns;
-
 @property (assign,nonatomic) CGFloat cellWidth;
 @property (assign,nonatomic) CGFloat cellHeight;
-
 @end
 
 @implementation ALWorldView

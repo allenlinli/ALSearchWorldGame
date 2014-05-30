@@ -16,7 +16,6 @@
 {
     ALPath *path = [[ALPath alloc]init];
     path.coordinateStack = [self.coordinateStack mutableCopy];
-    
     return path;
 }
 
@@ -32,9 +31,6 @@
 }
 
 -(void)pushWithCoordinate:(ALCoordiante)coor{
-    if (_coordinateStack) {
-        
-    }
     [(NSMutableArray *)self.coordinateStack addObject:[[NSValue class] valueWithCoordinate:coor]];
 }
 -(void)pop{

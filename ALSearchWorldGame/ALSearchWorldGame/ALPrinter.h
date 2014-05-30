@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
 #import "ALWorldStruct.h"
-
 #define ALPrinterClass [ALPrinter class]
 
 @class ALPath;

@@ -9,7 +9,7 @@
 #import "ALViewController.h"
 #import "ALWorldView.h"
 #import "ALPathExplorer.h"
-
+#import "NSValue+ALCoordinate.h"
 
 const NSTimeInterval walkTimeInterval = 0.5;
 
@@ -20,11 +20,15 @@ const NSTimeInterval walkTimeInterval = 0.5;
 @property (weak, nonatomic) IBOutlet ALWorldView *worldView;
 
 @property (strong, nonatomic) ALMap *map;
+@property (strong, nonatomic) ALPath *shortestPath;
 
-
+@property (strong, nonatomic) UIView *walkerView;
 @end
 
 @implementation ALViewController
+{
+    NSInteger step;
+}
 
 - (void)viewDidLoad
 {
@@ -36,29 +40,37 @@ const NSTimeInterval walkTimeInterval = 0.5;
     
     ALPathExplorer *explorer = [[ALPathExplorer alloc] init];
     
-    ALPath *shortestPath = [explorer exploreShortestPathWithMap:self.map];
+    self.shortestPath = [explorer exploreShortestPathWithMap:self.map];
     
-    if (shortestPath) {
-        NSLog(@"FOUND shortestPath");
-    }
-    
-    for (NSValue *value in shortestPath.coordinateStack) {
+    for (NSValue *value in self.shortestPath.coordinateStack) {
         ALCoordiante coor;
         [value getValue:&coor];
         NSLog(@"coor x:%i  y:%i",coor.x,coor.y);
     }
+    step = -1;
+    [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerMethod:) userInfo:nil repeats:YES];
+}
 
-    //# 根據最短路徑，用動畫的walker逐秒顯示出來
-    //## 開始一步一步走
-//    self.moveCount = 0;
-//    NSInvocation *timerInvocation = [NSInvocation invocationWithMethodSignature:
-//                       [self methodSignatureForSelector:@selector(takeAWalkOnShortestPath:)]];
-//    [timerInvocation setSelector:@selector(takeAWalkOnShortestPath:)];
-//    [timerInvocation setTarget:self];
-//    [timerInvocation setArgument:&shortestPath atIndex:2];
-//    [NSTimer scheduledTimerWithTimeInterval:walkTimeInterval
-//                                            invocation:timerInvocation
-//                                               repeats:YES];
+- (void)timerMethod:(NSTimer *)t
+{
+    if (++step >= [self.shortestPath.coordinateStack count]) {
+        [self.walkerView removeFromSuperview];
+        [t invalidate];
+        return;
+    }
+    
+    ALCoordiante coor = [(NSValue *)self.shortestPath.coordinateStack[step] coordinate];
+    CGFloat w = self.worldView.cellWidth;
+    CGFloat h = self.worldView.cellHeight;
+    CGRect frame = CGRectMake(coor.x * w, coor.y * h, w, h);
+    if (!self.walkerView) {
+        self.walkerView = [[UIView alloc] initWithFrame:frame];
+        self.walkerView.backgroundColor = [UIColor blackColor];
+        [self.view addSubview:self.walkerView];
+    }
+    else {
+        self.walkerView.frame = frame;
+    }    
 }
 
 
@@ -95,21 +107,5 @@ const NSTimeInterval walkTimeInterval = 0.5;
     return self.map.endPoint.coor;
 }
 
-#pragma mark -
-
--(void)takeAWalkOnShortestPath:(ALPath *)shortestPath
-{
-//    ALPoint *point = shortestPath.coordinateStack[self.moveCount];
-//    
-//    self.coorOfWalker = point.coor;
-//    
-//    self.moveCount++;
-//    
-//    [self.worldView setNeedsDisplay];
-}
-
-//-(ALCoordiante)walkerCoordinateForWorldView:(ALWorldView *)worldView{
-//    return self.coorOfWalker;
-//}
 
 @end

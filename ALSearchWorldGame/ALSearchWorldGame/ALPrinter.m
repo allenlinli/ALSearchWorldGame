@@ -13,8 +13,6 @@
 
 @implementation ALPrinter
 
-
-
 +(void)printPathsQueue:(NSMutableArray *)pathsQueue
 {
     NSLog(@"Print PathsQueue");
